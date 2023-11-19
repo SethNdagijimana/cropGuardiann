@@ -36,5 +36,6 @@ yarn-error.log*
 next-env.d.ts
 
 
+#yarn lock
 
-yarn.lock
+.yarn
