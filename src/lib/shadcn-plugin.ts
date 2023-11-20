@@ -14,11 +14,11 @@ export const shadcnPlugin = plugin(
         "--popover": " 0 0% 100%",
         "--popover-foreground": "222.2 84% 4.9%",
 
-        "--primary": "119 100% 40%",
-        "--primary-foreground": "119 100%, 40%",
+        "--primary": "0 0% 0%",
+        "--primary-foreground": "0 0%, 100%",
 
-        "--secondary": "0 0% 0%",
-        "--secondary-foreground": "0 0% 0%",
+        "--secondary": "0 0% 96%",
+        "--secondary-foreground": "0 0% 100%",
 
         "--muted": "210 40% 96.1%",
         "--muted-foreground": "215.4 16.3% 46.9%",
