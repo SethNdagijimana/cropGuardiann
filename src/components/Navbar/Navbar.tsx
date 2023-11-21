@@ -5,12 +5,16 @@ import { buttonVariants } from "../ui/button"
 const Navbar = () => {
   return (
     <div className="container pt-[44px]">
-      <div className="flex items-center justify-between">
+      <nav className="flex items-center justify-between">
         <div className="text-[32px] font-bold font-bricolage">CropGuardian</div>
 
         <ul className="flex items-center justify-center gap-6">
-          <li className="cursor-pointer">Home</li>
-          <li className="cursor-pointer">About Us</li>
+          <li className="cursor-pointer">
+            <Link href="#home">Home</Link>
+          </li>
+          <li className="cursor-pointer">
+            <Link href="#about-us">About Us</Link>
+          </li>
         </ul>
 
         <div className="flex items-center justify-center gap-6">
@@ -50,7 +54,7 @@ const Navbar = () => {
             </svg>
           </Link>
         </div>
-      </div>
+      </nav>
     </div>
   )
 }
