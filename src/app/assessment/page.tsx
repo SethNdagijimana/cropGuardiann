@@ -6,6 +6,7 @@ import {
   LowRisk,
   ModerateRisk
 } from "@/components/Risk"
+import HighRisk from "@/components/Risk/HighRisk"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
@@ -65,7 +66,7 @@ const RiskAssessment = () => {
           <div className="flex items-center justify-center gap-6">
             <div
               className={cn(
-                "h-8 w-8 p-4 p flex items-center justify-center rounded-[32px]",
+                "h-8 w-8 p-4 p flex items-center justify-center rounded-[32px] transition-all ease-in-out duration-300",
                 activeRisk === "low" ? "bg-[#54D2D1]" : " bg-[#FADC2E]"
               )}
             >
@@ -194,7 +195,7 @@ const RiskAssessment = () => {
 
       {activeRisk === "high" && (
         <div className="mt-[64px] px-[138px]">
-          <AboveRisk />
+          <HighRisk />
         </div>
       )}
 

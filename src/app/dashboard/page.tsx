@@ -1,7 +1,6 @@
 "use client"
 
-import { redirect } from "next/navigation"
-
 export default function Dashboard() {
-  redirect("/dashboard/simpleDashboard")
+  // redirect("/dashboard/simpleDashboard")
+  return <h1>there</h1>
 }
