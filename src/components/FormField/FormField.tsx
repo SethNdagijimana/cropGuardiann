@@ -33,9 +33,6 @@ const FormField: FC<FormFieldProps> = ({
 
   return (
     <>
-      <label className="text-primary text-sm select-none mb-[6px]">
-        {label}
-      </label>
       <div
         className={cn(
           `border border-[#E5EFFF] p-[10px] rounded-md bg-white cursor-pointer transition-all duration-200 ease-in-out`,
@@ -44,6 +41,10 @@ const FormField: FC<FormFieldProps> = ({
         )}
         onClick={() => inputRef.current?.focus()}
       >
+        <label className="text-primary text-sm font-light select-none mb-[10px]">
+          {label}
+        </label>
+
         <div className="flex items-center justify-between">
           {currencySymbol && (
             <span className="text-sm text-primary font-medium mr-1 block">
@@ -54,7 +55,7 @@ const FormField: FC<FormFieldProps> = ({
           {isTextArea ? (
             <textarea
               ref={inputRef}
-              className={`bg-transparent w-full focus:outline-none block placeholder:text-[#3B3B3B] placeholder:font-medium text-sm flex-1`}
+              className={`bg-transparent w-full focus:outline-none block placeholder:text-[#666] placeholder:font-medium text-sm flex-1`}
               {...props}
               onFocus={handleFocus}
               onBlur={handleBlur}
