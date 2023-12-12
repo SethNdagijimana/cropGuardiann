@@ -66,15 +66,15 @@ const LeftSideBar = () => {
 
         <div>
           <Button
-            text="Plans And Mitigation"
+            text="Plans & Mitigation"
             className={cn(
               "w-full rounded-[10px] p-[10px] flex items-center",
-              activeButton === "Plans And Mitigation"
+              activeButton === "Plans & Mitigation"
                 ? "bg-[#54D2D1] text-white"
                 : ""
             )}
             onClick={() => {
-              handleButtonClick("Plans And Mitigation")
+              handleButtonClick("Plans & Mitigation")
               router.push("/dashboard/plans")
             }}
             variant={"link"}
