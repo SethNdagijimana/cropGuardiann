@@ -21,7 +21,7 @@ const LeftSideBar = () => {
         </h3>
       </div> */}
 
-      <div className="bg-[#F9F9F9] rounded-[16px] px-[14px] pt-[61px] py-[442px] space-y-4 flex items-start flex-col mb-[137px]">
+      <div className="bg-[#F9F9F9] rounded-[16px] px-[14px] pt-[61px] h-[635px] space-y-4 flex items-start flex-col mb-[137px]">
         <div>
           <Button
             text="Dashboard"
