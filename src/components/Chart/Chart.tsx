@@ -28,11 +28,16 @@ Chart.register(
 interface ChartComponentProps {
   bgColor: string
   borderColor: string
+  label: string
 }
 
 const generateRandomNumber = () => Math.floor(Math.random() * 500)
 
-const ChartComponent = ({ bgColor, borderColor }: ChartComponentProps) => {
+const ChartComponent = ({
+  bgColor,
+  borderColor,
+  label
+}: ChartComponentProps) => {
   const labels = [
     "January",
     "February",
@@ -49,7 +54,7 @@ const ChartComponent = ({ bgColor, borderColor }: ChartComponentProps) => {
     datasets: [
       {
         fill: true,
-        label: "Total Earning per month",
+        label: `${label}`,
         data: labels.map(() => generateRandomNumber()),
         borderColor: `${borderColor}`,
         backgroundColor: `${bgColor}`

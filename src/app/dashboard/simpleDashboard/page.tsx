@@ -215,7 +215,11 @@ const SimpleDashboard = () => {
             <p>Total Earnings</p>
           </div>
 
-          <ChartComponent bgColor="#54d2d133" borderColor="#54D2D1" />
+          <ChartComponent
+            bgColor="#54d2d133"
+            borderColor="#54D2D1"
+            label="Total Earning Per Month"
+          />
         </div>
 
         <div className="border border-[#F2F2F2] rounded-[16px] p-[14.3px] w-[372px]">

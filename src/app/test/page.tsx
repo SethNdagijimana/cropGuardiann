@@ -1,4 +1,4 @@
-import ChartComponent from "@/components/Chart/Chart"
+import { WeatherChart } from "@/components/Chart"
 
 const Test = () => {
   return (
@@ -15,10 +15,11 @@ const Test = () => {
             <rect y="0.5" width={6} height={18} rx={3} fill="#54D2D1" />
           </svg>
 
-          <p>Total Earnings</p>
+          <p>Weather trends</p>
         </div>
-
-        <ChartComponent bgColor="#54d2d133" borderColor="#54D2D1" />
+        <div className="w-[713px]">
+          <WeatherChart />
+        </div>
       </div>
 
       <div>2</div>
