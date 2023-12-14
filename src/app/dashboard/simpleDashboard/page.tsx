@@ -1,6 +1,6 @@
 "use client"
 
-import { ChartComponent } from "@/components/Chart"
+import { ChartComponent, WeatherChart } from "@/components/Chart"
 import { Progress } from "@/components/ui/progress"
 import { useRouter } from "next/navigation"
 
@@ -380,6 +380,10 @@ const SimpleDashboard = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mt-[42px] w-[713px]  p-6 rounded-[16px] border border-[#F2F2F2]">
+        <WeatherChart />
       </div>
     </>
   )
