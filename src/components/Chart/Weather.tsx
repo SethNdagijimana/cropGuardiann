@@ -91,7 +91,12 @@ const WeatherChart = () => {
     "April",
     "May",
     "June",
-    "July"
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec"
   ]
 
   const chartData = {
