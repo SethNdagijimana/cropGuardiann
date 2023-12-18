@@ -45,7 +45,12 @@ const ChartComponent = ({
     "April",
     "May",
     "June",
-    "July"
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec"
   ]
 
   const data = {
