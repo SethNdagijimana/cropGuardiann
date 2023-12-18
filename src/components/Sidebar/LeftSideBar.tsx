@@ -15,12 +15,6 @@ const LeftSideBar = () => {
 
   return (
     <div className="mt-[56px]">
-      {/* <div className="mb-[56px]">
-        <h3 className="text-2xl font-bricolage font-bold text-center">
-          Crop Guardian
-        </h3>
-      </div> */}
-
       <div className="bg-[#F9F9F9] rounded-[16px] px-[14px] pt-[61px] h-[635px] space-y-4 flex items-start flex-col mb-[137px]">
         <div>
           <Button
@@ -75,7 +69,7 @@ const LeftSideBar = () => {
             )}
             onClick={() => {
               handleButtonClick("Plans & Mitigation")
-              router.push("/dashboard/plans")
+              router.push("/dashboard/plansAndmitigation")
             }}
             variant={"link"}
             icon={
