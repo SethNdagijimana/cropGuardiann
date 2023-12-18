@@ -2,11 +2,25 @@
 
 import { cn } from "@/lib/utils"
 
-import { MainIconProps } from "./icon.type"
+import AreaOfDoubtIcon from "./AreaOfDoubtIcon"
+import InsuranceIcon from "./InsuranceIcon"
+import LossesIcon from "./LossesIcon"
+import TotalIcon from "./TotalIcon"
+import TotalIncome from "./TotalIncome"
+import TotalLoss from "./TotalLoss"
+import UpArrow from "./UpArrow"
 import Wheat from "./Wheat"
+import { MainIconProps } from "./icon.type"
 
 const IconsMap = {
-  wheat: Wheat
+  wheat: Wheat,
+  upArrow: UpArrow,
+  areaOfDoubtIcon: AreaOfDoubtIcon,
+  lossesIcon: LossesIcon,
+  insuranceIcon: InsuranceIcon,
+  totalIcon: TotalIcon,
+  totalIncome: TotalIncome,
+  totalLoss: TotalLoss
 }
 
 interface IconProps extends MainIconProps {
