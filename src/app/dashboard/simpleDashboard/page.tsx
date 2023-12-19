@@ -91,7 +91,12 @@ const SimpleDashboard = () => {
           </div>
         </div>
 
-        <div className="border border-[#F2F2F2] rounded-2xl p-5">
+        <div
+          className="border border-[#F2F2F2] rounded-2xl p-5 cursor-pointer"
+          onClick={() => {
+            router.push("/insurance")
+          }}
+        >
           <div className="flex items-center justify-between">
             <h4 className="font-bricolage font-semibold">Insurance</h4>
             <div className="w-12 h-12 p-2 flex items-center justify-center rounded-[32px] bg-[#EEFAFA]">
