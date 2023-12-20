@@ -36,12 +36,12 @@ const FormField: FC<FormFieldProps> = ({
       <div
         className={cn(
           `border border-[#E5EFFF] p-[10px] rounded-md bg-white cursor-pointer transition-all duration-200 ease-in-out`,
-          isFocused && ` ring-2 ring-[#4397F7] ${style.inputBorder}`,
+          isFocused && ` ring-2 ring-[#54d2d180] ${style.inputBorder}`,
           className
         )}
         onClick={() => inputRef.current?.focus()}
       >
-        <label className="text-primary text-sm font-light select-none mb-[10px]">
+        <label className="text-primary text-xs font-light select-none mb-[10px]">
           {label}
         </label>
 
