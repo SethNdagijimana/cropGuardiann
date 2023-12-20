@@ -1,6 +1,8 @@
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 const InsurancePolicy = () => {
+  const router = useRouter()
   return (
     <>
       <div className="w-[967px] mx-auto mt-[77px]">
@@ -203,6 +205,51 @@ const InsurancePolicy = () => {
             alt="bg-image"
             className="h-full"
           />
+        </div>
+      </div>
+
+      <div className="mt-20">
+        <div className=" mb-8 text-center font-bold font-bricolage">
+          <h2>How do I apply?</h2>
+          <p> Below is our easy step by step application process:</p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6 px-[147px]">
+          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+            <p className="font-bold font-bricolage">Step 1</p>
+            <p className="text-xs">Request for quotation</p>
+          </div>
+
+          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+            <p className="font-bold font-bricolage">Step 2</p>
+            <p className="text-xs">Fill proposal form</p>
+          </div>
+
+          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+            <p className="font-bold font-bricolage">Step 3</p>
+            <p className="text-xs">Premium payment</p>
+          </div>
+
+          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+            <p className="font-bold font-bricolage">Step 4</p>
+            <p className="text-xs">
+              Provide ID for individuals, RCA certificate for cooperative & RDB
+              certificate for corporate
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+            <p className="font-bold font-bricolage">Step 5</p>
+            <p className="text-xs">Sign contract</p>
+          </div>
+
+          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+            <p className="font-bold font-bricolage">Step 6</p>
+
+            <p className="text-xs">
+              For More Information check our Government Program
+            </p>
+          </div>
         </div>
       </div>
     </>
