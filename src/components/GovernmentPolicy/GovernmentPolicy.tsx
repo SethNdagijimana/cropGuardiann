@@ -15,7 +15,7 @@ import { Button } from "../ui/button"
 const GovernmentPolicy = () => {
   return (
     <>
-      <div className="grid grid-cols-2 px-[100px] py-[80px] gap-16 mt-[55px]">
+      <div className="grid grid-cols-2 px-[100px] py-[80px] gap-16 mt-[30px]">
         <div className="bg-[#F2F2F2] rounded-2xl p-6 w-full">
           <div className="w-[484px] space-y-6">
             <h3 className="text-[24px] text-primary">
@@ -30,12 +30,12 @@ const GovernmentPolicy = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-4 mt-6">
-            <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#E5E5E5]">
+            <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#E5E5E5] text-xs">
               <Wheat color="#54D2D1" width={32} height={32} />
               <h4 className="text-xs font-bold font-bricolage">
                 Financial Empowerment and Loans
               </h4>
-              <h4 className="text-xs">Loans for Farmers</h4>
+              <h4 className="">Loans for Farmers</h4>
               <h4 className="text-xs">Investing in Technology</h4>
               <h4 className="text-xs">Crop Insurance:</h4>
               <h4 className="text-xs">Financial Literacy Programs</h4>
@@ -88,7 +88,7 @@ const GovernmentPolicy = () => {
             <ChartComponent
               bgColor="#54d2d133"
               borderColor="#54D2D1"
-              label="Total Government support"
+              label="Total Government support $"
             />
           </div>
         </div>

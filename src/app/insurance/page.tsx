@@ -42,6 +42,7 @@ const Insurance = () => {
         <Button
           text="Government program"
           variant={"link"}
+          id="gov"
           onClick={() => handlePage("government")}
         />
         <Button
