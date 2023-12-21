@@ -1,8 +1,7 @@
 import Image from "next/image"
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 const InsurancePolicy = () => {
-  const router = useRouter()
   return (
     <>
       <div className="w-[967px] mx-auto mt-[77px]">
@@ -247,7 +246,8 @@ const InsurancePolicy = () => {
             <p className="font-bold font-bricolage">Step 6</p>
 
             <p className="text-xs">
-              For More Information check our Government Program
+              For More Information check our Government Program{" "}
+              <Link href={"#gov"}>Click Here</Link>
             </p>
           </div>
         </div>
