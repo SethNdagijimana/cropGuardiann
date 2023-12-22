@@ -1,6 +1,6 @@
 const AverageRisk = () => {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
       <div className="p-4 border border-[#F2F2F2] rounded-[16px]">
         <div className="h-8 w-8 flex items-center justify-center p-2 rounded-[32px] bg-[#EEFAFA]">
           <svg
@@ -17,14 +17,14 @@ const AverageRisk = () => {
           </svg>
         </div>
 
-        <div className="mt-8">
+        <div className="md:mt-8 mt-4">
           <p className="font-bold text-[#54D2D1]">
             Our Recommendation: Average risk
           </p>
         </div>
 
         <div className="mt-6">
-          <h4 className="text-[#848484] font-normal leading-[24px]">
+          <h4 className="text-[#848484] font-normal md:leading-[24px] leading-[20px]">
             Remember that while low-risk investments are safer, they usually
             offer lower returns compared to riskier investments. Your choice
             should align with your financial goals and how much risk you are
@@ -35,7 +35,7 @@ const AverageRisk = () => {
         </div>
       </div>
 
-      <div className="p-4 border border-[#F2F2F2] rounded-[16px] ">
+      <div className="p-4 border border-[#F2F2F2] rounded-[16px]">
         <div className="h-8 w-8 flex items-center justify-center p-2 rounded-[32px] bg-[#F3EEF9]">
           <svg
             width={16}
@@ -51,14 +51,14 @@ const AverageRisk = () => {
           </svg>
         </div>
 
-        <div className="mt-8">
+        <div className="md:mt-8 mt-4">
           <p className="font-bold text-[#8452BF]">
             Your selection: Average risk
           </p>
         </div>
 
         <div className="mt-6">
-          <h4 className="text-[#848484] font-normal leading-[24px]">
+          <h4 className="text-[#848484] font-normal md:leading-[24px] leading-[20px]">
             This level is like playing a very safe and easy game. Your chances
             of winning are quite high, but the rewards might not be very big.
             It&apos;s a bit like making a simple bet with your friend that
