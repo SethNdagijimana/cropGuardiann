@@ -17,15 +17,17 @@ const SignUp = () => {
     <>
       {!showSignupPage ? (
         <>
-          <div className="mt-[175px]">
+          <div className="md:mt-[175px] mt-20">
             <h2 className="text-[36px] font-bricolage font-bold text-primary text-center">
               Crop guardian
             </h2>
           </div>
 
-          <div className="mt-[158px] p-8 border border-[#F1F1F1] w-[348px] mx-auto">
-            <div className="mb-6">
-              <h3 className="font-medium text-center">Create your account</h3>
+          <div className="md:mt-[158px] mt-20 md:p-8 p-4 border border-[#F1F1F1] w-[348px] mx-auto">
+            <div className="md:mb-6 mb-4">
+              <h3 className="font-bold text-center md:text-[20px] text-base font-bricolage">
+                Create your account
+              </h3>
             </div>
 
             <div className="flex items-center justify-center w-[224px] mx-auto">
@@ -34,12 +36,12 @@ const SignUp = () => {
                 onClick={handleSignUpPage}
                 className={cn(
                   buttonVariants({ variant: "default" }),
-                  "h-10 rounded-[50px] bg-[#4397F7] text-sm font-medium"
+                  "h-10 rounded-[50px] bg-[#4397F7] text-sm font-medium text-white"
                 )}
               />
             </div>
 
-            <div className="space-y-6">
+            <div className="md:space-y-6 space-y-4">
               <div className="mt-8 flex items-center justify-center">
                 <h4 className="font-normal">
                   Already have an account?
@@ -53,14 +55,16 @@ const SignUp = () => {
         </>
       ) : (
         <>
-          <div className="mt-[175px]">
-            <h2 className="text-[36px] font-bricolage font-bold text-primary text-center">
+          <div className="md:mt-[175px] mt-20">
+            <h2 className="md:text-[36px] text-[30px] font-bricolage font-bold text-primary text-center">
               Crop guardian
             </h2>
           </div>
 
-          <div className="mt-20 w-[348px] mx-auto border border-[#F1F1F1] rounded-[50px] p-6">
-            <h3 className="text-center font-medium">Create your account</h3>
+          <div className="md:mt-20 mt-10 md:w-[348px] w-[300px] mx-auto border border-[#F1F1F1] rounded-[50px] p-6">
+            <h3 className="text-center font-bold font-bricolage text-base md:text-[20px]">
+              Create your account
+            </h3>
 
             <div className="mt-6">
               <form>
@@ -83,7 +87,7 @@ const SignUp = () => {
                 <div className="mt-8">
                   <Button
                     text="Sign Up"
-                    className="w-full bg-[#4397F7] rounded-[50px]"
+                    className="w-full bg-[#4397F7] rounded-[50px] text-white"
                   />
                 </div>
               </form>
