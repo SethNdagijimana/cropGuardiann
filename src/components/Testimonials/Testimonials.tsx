@@ -3,11 +3,11 @@ import Image from "next/image"
 const Testimonials = () => {
   return (
     <>
-      <div className="grid grid-cols-2 mt-[97px] px-[81px] gap-[44px]">
-        <div className="border border-[#E1E1E1] rounded-2xl p-4 space-y-4">
+      <div className="grid md:grid-cols-2 grid-cols-1 md:mt-[97px] mt-[80] md:px-[81px] px-[48px] gap-[44px]">
+        <div className="border border-[#E1E1E1] rounded-2xl md:p-4 p-2 space-y-4">
           <div className=" flex items-center justify-between">
             <div className="flex items-center justify-center gap-[11px]">
-              <div className="p-6 rounded-[50px] overflow-hidden relative">
+              <div className="md:p-6 p-4 rounded-[50px] overflow-hidden relative">
                 <Image
                   src={"/7.jpg"}
                   fill
@@ -19,7 +19,7 @@ const Testimonials = () => {
               </div>
 
               <div className="gap-2 flex items-center justify-center">
-                <h4 className="text-[15px] font-medium text-primary">
+                <h4 className="md:text-[15px] text-xs font-medium text-primary">
                   Karigirwa Rachel
                 </h4>
 
@@ -55,13 +55,8 @@ const Testimonials = () => {
               </div>
             </div>
 
-            <h4 className="text-[#475467]">Jan 6, 2022</h4>
+            <h4 className="text-[#475467] md:text-sm text-xs">Jan 6, 2022</h4>
           </div>
-
-          <p className="text-xs text-[#878787]">
-            Blockchain implementation of usePage3 with Sacffold eth :
-            https://github.com/Maker-Studios/usepage3-scaffold
-          </p>
 
           <p className="text-[#878787]">
             Together, this diverse and skilled team collaborates to realize the
@@ -71,10 +66,10 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="border border-[#E1E1E1] rounded-2xl p-4 space-y-4">
+        <div className="border border-[#E1E1E1] rounded-2xl md:p-4 p-2 space-y-4">
           <div className=" flex items-center justify-between">
             <div className="flex items-center justify-center gap-[11px]">
-              <div className="p-6 rounded-[50px] overflow-hidden relative">
+              <div className="md:p-6 p-4 rounded-[50px] overflow-hidden relative">
                 <Image
                   src={"/7.jpg"}
                   fill
@@ -86,7 +81,7 @@ const Testimonials = () => {
               </div>
 
               <div className="gap-2 flex items-center justify-center">
-                <h4 className="text-[15px] font-medium text-primary">
+                <h4 className="md:text-[15px] text-xs font-medium text-primary">
                   Karigirwa Rachel
                 </h4>
 
@@ -122,13 +117,8 @@ const Testimonials = () => {
               </div>
             </div>
 
-            <h4 className="text-[#475467]">Jan 6, 2022</h4>
+            <h4 className="text-[#475467] text-xs md:text-sm">Jan 6, 2022</h4>
           </div>
-
-          <p className="text-xs text-[#878787]">
-            Blockchain implementation of usePage3 with Sacffold eth :
-            https://github.com/Maker-Studios/usepage3-scaffold
-          </p>
 
           <p className="text-[#878787]">
             Together, this diverse and skilled team collaborates to realize the
@@ -138,10 +128,10 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="border border-[#E1E1E1] rounded-2xl p-4 space-y-4">
+        <div className="border border-[#E1E1E1] rounded-2xl md:p-4 p-2 space-y-4">
           <div className=" flex items-center justify-between">
             <div className="flex items-center justify-center gap-[11px]">
-              <div className="p-6 rounded-[50px] overflow-hidden relative">
+              <div className="md:p-6 p-4 rounded-[50px] overflow-hidden relative">
                 <Image
                   src={"/7.jpg"}
                   fill
@@ -153,7 +143,7 @@ const Testimonials = () => {
               </div>
 
               <div className="gap-2 flex items-center justify-center">
-                <h4 className="text-[15px] font-medium text-primary">
+                <h4 className="md:text-[15px] text-xs font-medium text-primary">
                   Karigirwa Rachel
                 </h4>
 
@@ -189,13 +179,8 @@ const Testimonials = () => {
               </div>
             </div>
 
-            <h4 className="text-[#475467]">Jan 6, 2022</h4>
+            <h4 className="text-[#475467] text-xs md:text-sm">Jan 6, 2022</h4>
           </div>
-
-          <p className="text-xs text-[#878787]">
-            Blockchain implementation of usePage3 with Sacffold eth :
-            https://github.com/Maker-Studios/usepage3-scaffold
-          </p>
 
           <p className="text-[#878787]">
             Together, this diverse and skilled team collaborates to realize the
@@ -205,10 +190,10 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="border border-[#E1E1E1] rounded-2xl p-4 space-y-4">
+        <div className="border border-[#E1E1E1] rounded-2xl md:p-4 p-2 space-y-4">
           <div className=" flex items-center justify-between">
             <div className="flex items-center justify-center gap-[11px]">
-              <div className="p-6 rounded-[50px] overflow-hidden relative">
+              <div className="md:p-6 p-4 rounded-[50px] overflow-hidden relative">
                 <Image
                   src={"/7.jpg"}
                   fill
@@ -220,7 +205,7 @@ const Testimonials = () => {
               </div>
 
               <div className="gap-2 flex items-center justify-center">
-                <h4 className="text-[15px] font-medium text-primary">
+                <h4 className="md:text-[15px] text-xs font-medium text-primary">
                   Karigirwa Rachel
                 </h4>
 
@@ -256,13 +241,8 @@ const Testimonials = () => {
               </div>
             </div>
 
-            <h4 className="text-[#475467]">Jan 6, 2022</h4>
+            <h4 className="text-[#475467] text-xs md:text-sm">Jan 6, 2022</h4>
           </div>
-
-          <p className="text-xs text-[#878787]">
-            Blockchain implementation of usePage3 with Sacffold eth :
-            https://github.com/Maker-Studios/usepage3-scaffold
-          </p>
 
           <p className="text-[#878787]">
             Together, this diverse and skilled team collaborates to realize the
