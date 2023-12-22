@@ -2,7 +2,7 @@ import Image from "next/image"
 
 const Images = () => {
   return (
-    <div className="mt-[77px] p-6 grid grid-cols-3 gap-[21px] h-[296px]">
+    <div className="md:mt-[77px] mt-[68px] p-6 grid md:grid-cols-3 grid-cols-1 gap-[21px] md:h-[296px] h-[700px]">
       <div className="rounded-[16px] relative overflow-hidden">
         <Image
           src={"/1.png"}
@@ -17,7 +17,7 @@ const Images = () => {
       <div className="rounded-[16px] relative overflow-hidden">
         {" "}
         <Image
-          src={"/2.png"}
+          src={"/7.jpg"}
           fill
           style={{ objectFit: "cover" }}
           priority
@@ -28,7 +28,7 @@ const Images = () => {
 
       <div className="rounded-[16px] relative overflow-hidden">
         <Image
-          src={"/3.png"}
+          src={"/ag.webp"}
           fill
           style={{ objectFit: "cover" }}
           priority

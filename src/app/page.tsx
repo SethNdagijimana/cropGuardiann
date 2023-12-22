@@ -11,15 +11,18 @@ export default function Home() {
     <>
       <Navbar />
 
-      <div className="w-[867px] mx-auto mt-[89px]">
-        <h2 id="home" className="font-medium text-primary text-center">
+      <div className="md:w-[867px] mx-auto md:mt-[89px] mt-12 container">
+        <h2
+          id="home"
+          className="md:text-[32px] text-[20px] md:leading-[54px] leading-[30px] font-medium text-primary text-center"
+        >
           Step into a world of agricultural excellence with Crop Guardian, where
           we cultivate success and innovation hand in hand.
         </h2>
       </div>
 
-      <div className="w-[566px] mx-auto mt-[21px]">
-        <p className="text-[#494949] text-center font-normal">
+      <div className="md:w-[566px] mx-auto mt-[21px] container">
+        <p className="text-[#494949] text-center font-normal md:text-base text-sm">
           Join us in cultivating a green future, where agricultural excellence
           is not just a goal but a way of life.
         </p>
@@ -30,10 +33,12 @@ export default function Home() {
           href="/signup"
           className={cn(
             buttonVariants({ variant: "default" }),
-            "h-[54px] w-[341px] rounded-[50px]"
+            "h-[54px] md:w-[341px] w-[250px] rounded-[50px]"
           )}
         >
-          <span className="px-2 py-[2px] font-medium text-base">Continue</span>
+          <span className="md:px-2 md:py-[2px] font-medium text-base text-white">
+            Continue
+          </span>
           <svg
             width={25}
             height={24}
@@ -51,13 +56,13 @@ export default function Home() {
 
       <Images />
 
-      <h1 className="font-bricolage font-bold text-center mt-[200px]">
+      <h1 className="font-bricolage font-bold text-center md:text-[48px] text-[32px] md:mt-[200px] mt-[40px]">
         Target Audience
       </h1>
 
-      <div className="grid grid-cols-2 px-[80px] mt-[118px] gap-[32px]">
+      <div className="grid md:grid-cols-2 grid-cols-1 md:px-[80px] px-[40px] md:mt-[118px] mt-[60px] gap-[32px]">
         <div className="space-y-6 text-[#878787]">
-          <p className="text-2xl font-normal leading-[36px]">
+          <p className="md:text-2xl text-base font-normal md:leading-[36px] leading-[26px]">
             The financial risk assessment system developed by Crop Guardian is
             tailored to meet the needs of a diverse audience within the
             agricultural landscape. Primarily designed for farmers and
@@ -65,7 +70,7 @@ export default function Home() {
             investment decisions by leveraging financial and market data.
           </p>
 
-          <p className="text-2xl font-normal leading-[36px]">
+          <p className="md:text-2xl text-base font-normal md:leading-[36px] leading-[26px]">
             Beyond the farming community, agricultural investors find value in
             the system, gaining insights that guide their investment strategies.
           </p>
@@ -83,22 +88,20 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-[172px]">
-        <h1 id="about-us" className="text-center font-bricolage font-bold ">
+      <div className="md:mt-[172px] mt-[100px]">
+        <h1
+          id="about-us"
+          className="text-center font-bricolage font-bold md:text-[48px] text-[32px]"
+        >
           About Us
         </h1>
       </div>
 
-      <div className="grid grid-cols-2 px-[95px] gap-[44px] mt-[111px]">
+      <div className="grid md:grid-cols-2 grid-cols-1 md:px-[95px] px-[40px] gap-[44px] md:mt-[111px] mt-[40px]">
         <div className="border border-[#E1E1E1] rounded-2xl p-4 space-y-4">
           <h3 className="text-primary text-2xl font-bold">Our Mission</h3>
 
-          <p className="text-xs text-[#878787]">
-            Blockchain implementation of usePage3 with Sacffold eth :
-            https://github.com/Maker-Studios/usepage3-scaffold
-          </p>
-
-          <p className="text-[#878787]">
+          <p className="text-[#878787] md:text-[16px] text-sm leading-[28px]">
             In the heart of our agricultural journey, Crop Guardian sprouted
             from a shared passion for cultivating not just crops but
             opportunities for farmers worldwide. Our story begins with a group
@@ -112,12 +115,7 @@ export default function Home() {
         <div className="border border-[#E1E1E1] rounded-2xl p-4 space-y-4">
           <h3 className="text-primary text-2xl font-bold">Our story</h3>
 
-          <p className="text-xs text-[#878787]">
-            Blockchain implementation of usePage3 with Sacffold eth :
-            https://github.com/Maker-Studios/usepage3-scaffold
-          </p>
-
-          <p className="text-[#878787]">
+          <p className="text-[#878787] md:text-[16px] text-sm leading-[28px]">
             To empower farmers worldwide by providing innovative financial
             solutions and data-driven insights, enabling them to make informed
             decisions, manage risks effectively, and cultivate sustainable and
@@ -130,12 +128,7 @@ export default function Home() {
         <div className="border border-[#E1E1E1] rounded-2xl p-4 space-y-4">
           <h3 className="text-primary text-2xl font-bold">Our team</h3>
 
-          <p className="text-xs text-[#878787]">
-            Blockchain implementation of usePage3 with Sacffold eth :
-            https://github.com/Maker-Studios/usepage3-scaffold
-          </p>
-
-          <p className="text-[#878787]">
+          <p className="text-[#878787] md:text-[16px] text-sm leading-[28px]">
             Together, this diverse and skilled team collaborates to realize the
             vision of Crop Guardian, providing a comprehensive solution to
             financial risk management for farmers and contributing to the
@@ -144,7 +137,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 h-[350px] px-[163px] mt-[154px] gap-[32px]">
+      <div className="grid md:grid-cols-2 grid-cols-1 h-[350px] md:px-[163px] px-[40px] md:mt-[154px] mt-[80px] gap-[32px]">
         <div className="rounded-[16px] relative overflow-hidden">
           <Image
             src={"/9.webp"}
@@ -168,8 +161,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-[180px]">
-        <h1 className="font-bricolage text-primary font-bold text-center">
+      <div className="md:mt-[180px] mt-[100px] mb-[40px] md:mb-0">
+        <h1 className="font-bricolage text-primary font-bold text-center md:text-[48px] text-[32px]">
           Hear from our happy customer
         </h1>
       </div>
@@ -178,24 +171,26 @@ export default function Home() {
 
       {/* footer */}
 
-      <div className="mt-[230px] relative">
-        <div className="bg-[#D1FFFF] h-16 rotate-[3.512deg] flex items-center justify-center relative z-20">
-          <div className="flex items-center justify-center gap-[149px]">
-            <h3 className="text-[24px] font-bricolage font-medium text-primary">
+      <div className="md:mt-[230px] mt-[140px] relative">
+        <div className="bg-[#D1FFFF] md:h-16 h-10 rotate-[3.512deg] flex items-center justify-center relative z-20">
+          <div className="flex items-center justify-center md:gap-[149px] gap-4">
+            <h3 className="md:text-[24px] text-sm font-bricolage font-medium text-primary">
               Crop guardian
             </h3>
 
-            <div className="flex items-center justify-center gap-[15px]">
-              <p className="text-xs font-medium font-bricolage">
+            <div className="flex items-center justify-center md:gap-[15px] gap-[8px]">
+              <p className="md:text-xs text-[10px] font-medium font-bricolage">
                 Copyright © 2023 cropguardian.
               </p>
 
-              <p className="text-xs font-medium "> All rights reserved</p>
+              <p className="md:text-xs text-[10px] font-medium ">
+                All rights reserved
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="bg-[#A4E2E2] h-16 rotate-[-3deg] absolute inset-0 z-10"></div>
+        <span className="bg-[#A4E2E2] md:h-16 h-10 rotate-[-3deg] absolute inset-0 z-10"></span>
       </div>
     </>
   )
