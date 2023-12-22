@@ -31,11 +31,12 @@ const RiskAssessment = () => {
 
   return (
     <div>
-      <div className="mt-8 px-[138px]">
+      <div className="mt-8 md:px-[138px] px-20">
         <Button
           text="Dashboard"
           icon={
             <svg
+              className="md:w-[24px] w-[16px] h-[16px] md:h-[24px]"
               xmlns="http://www.w3.org/2000/svg"
               width={24}
               height={24}
@@ -48,22 +49,25 @@ const RiskAssessment = () => {
           iconPosition="left"
           onClick={router.back}
           variant={"default"}
-          className="text-white rounded-[4px] w-[150px]"
+          className="text-white rounded-[4px] md:w-[150px] w-[120px]"
         />
       </div>
-      <div className="w-[629px] mx-auto mt-[120px] space-y-8">
-        <h2 className="font-bold text-center">Investment Risk Profile</h2>
-        <p className="text-[#666] text-center">
+
+      <div className="md:w-[629px] w-[300px] mx-auto md:mt-[120px] mt-16 space-y-8">
+        <h2 className="font-bold text-center md:text-[32px] text-[20px] font-bricolage">
+          Investment Risk Profile
+        </h2>
+        <p className="text-[#666] text-center md:text-[16px] text-sm">
           Based on the information gathered in this questionnaire an don the
           determined Investor Risk Profile score the client agrees to the
-          following risk profile level for this assets held with the bank.{" "}
+          following risk profile level for this assets held with the bank.
         </p>
       </div>
 
-      <div className="grid grid-cols-5 px-[138px] mt-[92px] gap-6">
+      <div className="grid md:grid-cols-5 grid-cols-1 md:px-[138px] px-[100px] md:mt-[92px] mt-[80px] md:gap-6 gap-2">
         <div className="space-y-4">
-          <h4>Low Risk</h4>
-          <div className="flex items-center justify-center gap-6">
+          <h4 className="md:text-sm text-xs">Low Risk</h4>
+          <div className="md:flex block items-center justify-center gap-6">
             <div
               className={cn(
                 "h-8 w-8 p-4 p flex items-center justify-center rounded-[32px] transition-all ease-in-out duration-300",
@@ -75,18 +79,23 @@ const RiskAssessment = () => {
 
             <span
               className={cn(
-                "w-[165px]",
+                "",
                 activeRisk === "low" ? "text-[#54D2D1]" : "text-[#FADC2E]"
               )}
             >
-              ---------------------
+              <p className="hidden md:flex"> ---------------------</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
             </span>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h4>Moderate Risk</h4>
-          <div className="flex items-center justify-center gap-6">
+          <h4 className="md:text-sm text-xs">Moderate Risk</h4>
+          <div className="md:flex block items-center justify-center gap-6">
             <div
               className={cn(
                 "h-8 w-8 p-4 p flex items-center justify-center rounded-[32px]",
@@ -102,14 +111,19 @@ const RiskAssessment = () => {
                 activeRisk === "moderate" ? "text-[#54D2D1]" : "text-[#FADC2E]"
               )}
             >
-              ---------------------
+              <p className="hidden md:flex"> ---------------------</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
             </span>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h4>Average Risk</h4>
-          <div className="flex items-center justify-center gap-6">
+          <h4 className="md:text-sm text-xs">Average Risk</h4>
+          <div className="md:flex block items-center justify-center gap-6">
             <div
               className={cn(
                 "h-8 w-8 p-4 p flex items-center justify-center rounded-[32px]",
@@ -125,14 +139,19 @@ const RiskAssessment = () => {
                 activeRisk === "average" ? "text-[#54D2D1]" : "text-[#FADC2E]"
               )}
             >
-              ---------------------
+              <p className="hidden md:flex"> ---------------------</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
             </span>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h4>Above average Risk</h4>
-          <div className="flex items-center justify-center gap-6">
+          <h4 className="md:text-sm text-xs">Above average Risk</h4>
+          <div className="md:flex block items-center justify-center gap-6">
             <div
               className={cn(
                 "h-8 w-8 p-4 p flex items-center justify-center rounded-[32px]",
@@ -150,7 +169,12 @@ const RiskAssessment = () => {
                   : "text-[#FADC2E]"
               )}
             >
-              ---------------------
+              <p className="hidden md:flex"> ---------------------</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
+              <p className="md:hidden flex"> |</p>
             </span>
           </div>
         </div>
@@ -170,31 +194,31 @@ const RiskAssessment = () => {
       </div>
 
       {activeRisk === "low" && (
-        <div className="mt-[64px] px-[138px]">
+        <div className="md:mt-[64px] mt-10 md:px-[138px] px-20">
           <LowRisk />
         </div>
       )}
 
       {activeRisk === "moderate" && (
-        <div className="mt-[64px] px-[138px]">
+        <div className="md:mt-[64px] mt-10 md:px-[138px] px-20">
           <ModerateRisk />
         </div>
       )}
 
       {activeRisk === "average" && (
-        <div className="mt-[64px] px-[138px]">
+        <div className="md:mt-[64px] mt-10 md:px-[138px] px-20">
           <AverageRisk />
         </div>
       )}
 
       {activeRisk === "aboveAverage" && (
-        <div className="mt-[64px] px-[138px]">
+        <div className="md:mt-[64px] mt-10 md:px-[138px] px-20">
           <AboveRisk />
         </div>
       )}
 
       {activeRisk === "high" && (
-        <div className="mt-[64px] px-[138px]">
+        <div className="md:mt-[64px] mt-10 md:px-[138px] px-20">
           <HighRisk />
         </div>
       )}
