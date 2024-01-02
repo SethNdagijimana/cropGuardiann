@@ -42,6 +42,8 @@ next-env.d.ts
 
 
 #yarn lock
-
-
 .yarn
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
