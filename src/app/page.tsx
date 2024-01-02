@@ -180,7 +180,7 @@ export default function Home() {
 
             <div className="flex items-center justify-center md:gap-[15px] gap-[8px]">
               <p className="md:text-xs text-[10px] font-medium font-bricolage">
-                Copyright © 2023 cropguardian.
+                Copyright © {new Date().getFullYear()} CropGuardian.
               </p>
 
               <p className="md:text-xs text-[10px] font-medium ">
