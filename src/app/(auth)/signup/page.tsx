@@ -2,15 +2,92 @@
 
 import { FormField } from "@/components/FormField"
 import { Button, buttonVariants } from "@/components/ui/button"
+import { toast } from "@/components/ui/use-toast"
 import { cn } from "@/lib/utils"
+import { signUp } from "@/services/user"
+import { signIn } from "next-auth/react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 const SignUp = () => {
   const [showSignupPage, setShowSignupPage] = useState<boolean>(false)
+  const [email, setEmail] = useState("")
+  // const [name, setName] = useState("")
+  const [password, setPassword] = useState("")
+  const [retypedPassword, setRetypedPassword] = useState("")
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  const router = useRouter()
 
   const handleSignUpPage = () => {
     setShowSignupPage(true)
+  }
+
+  //Todo change alerts messages
+
+  const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (!email || !password || !retypedPassword) {
+      toast({
+        variant: "destructive",
+        description: "all fields are-required"
+      })
+
+      return
+    }
+
+    if (password !== retypedPassword) {
+      toast({
+        variant: "destructive",
+        description: "Passwords do not match"
+      })
+
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      const data = await signUp({ email, password, retypedPassword })
+
+      if (data.error) {
+        toast({
+          variant: "destructive",
+          description: data.message
+        })
+
+        setIsLoading(false)
+
+        return
+      }
+
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false
+      })
+
+      if (result?.error) {
+        toast({
+          variant: "destructive",
+          description: result.error
+        })
+
+        setIsLoading(false)
+
+        return
+      }
+      router.push("/signin")
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        description: "error-message"
+      })
+
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -67,27 +144,51 @@ const SignUp = () => {
             </h3>
 
             <div className="mt-6">
-              <form>
-                <div className="mb-6">
-                  <FormField label="Name" type="text" />
-                </div>
+              <form onSubmit={onSubmitHandler} className="space-y-[1.813rem]">
+                <fieldset className="space-y-[1.813rem]" disabled={isLoading}>
+                  {/* <div className="mb-6">
+                    <FormField
+                      label="Name"
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div> */}
 
-                <div className="mb-6">
-                  <FormField label="Email" type="email" />
-                </div>
+                  <div className="mb-6">
+                    <FormField
+                      label="Email"
+                      type={"email"}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
 
-                <div className="mb-6">
-                  <FormField label="password" type="password" />
-                </div>
+                  <div className="mb-6">
+                    <FormField
+                      label="password"
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
 
-                <div>
-                  <FormField label="Re- type password" type="password" />
-                </div>
+                  <div>
+                    <FormField
+                      label="Re-type password"
+                      type="password"
+                      value={retypedPassword}
+                      onChange={(e) => setRetypedPassword(e.target.value)}
+                      onPaste={(e) => e.preventDefault()}
+                    />
+                  </div>
+                </fieldset>
 
                 <div className="mt-8">
                   <Button
                     text="Sign Up"
                     className="w-full bg-[#4397F7] rounded-[50px] text-white"
+                    loading={isLoading}
                   />
                 </div>
               </form>

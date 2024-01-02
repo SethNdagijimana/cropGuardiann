@@ -1,7 +1,9 @@
+import { Toaster } from "@/components/ui/toaster"
 import { cn } from "@/lib/utils"
 import type { Metadata } from "next"
 import { Bricolage_Grotesque, Inter } from "next/font/google"
 import "../styles/globals.scss"
+import NextAuthSessionProvider from "./providers/NextAuthSessionProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,7 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, bricolage.variable)}>
-        <main>{children}</main>
+        <main>
+          {" "}
+          <NextAuthSessionProvider>{children}</NextAuthSessionProvider>
+        </main>
+        <Toaster />
       </body>
     </html>
   )
