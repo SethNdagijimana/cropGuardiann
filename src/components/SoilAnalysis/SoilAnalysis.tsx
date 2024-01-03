@@ -4,7 +4,7 @@ import { Progress } from "../ui/progress"
 
 const SoilAnalysis = () => {
   return (
-    <div className="border border-[#F2F2F2] rounded-[16px] p-[14.3px] w-[372px]">
+    <div className="border border-[#F2F2F2] rounded-[16px] md:p-[14.3px] p-[12px] md:w-[372px] w-[300px]">
       <div className="flex items-start justify-between">
         <h4 className="font-bricolage font-semibold">
           Soil analysis (per hectal)

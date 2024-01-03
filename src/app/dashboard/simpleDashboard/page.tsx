@@ -15,9 +15,9 @@ const SimpleDashboard = () => {
 
   return (
     <>
-      <div className="grid grid-cols-4 gap-x-5 mt-[34px] space-x-8 ">
+      <div className="grid md:grid-cols-4 grid-cols-1 md:gap-x-5  md:mt-[34px] md:space-x-8 md:space-y-0 space-y-8">
         <div
-          className="border border-[#F2F2F2] rounded-2xl p-5 cursor-pointer"
+          className="border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer"
           onClick={() => {
             router.push("/dashboard/simpleDashboard/doubt")
           }}
@@ -30,10 +30,10 @@ const SimpleDashboard = () => {
           </div>
 
           <div className="mt-[7px]">
-            <h1 className="text-[40px]">982</h1>
+            <h1 className="md:text-[40px] text-[20px]">982</h1>
           </div>
 
-          <div className="flex items-center gap-[7px] mt-[18px]">
+          <div className="flex items-center gap-[7px] md:mt-[18px] mt-4">
             <UpArrow color="#4397F7" />
 
             <h4 className="text-[#4397F7]">MoM</h4>
@@ -42,7 +42,7 @@ const SimpleDashboard = () => {
         </div>
 
         <div
-          className="border border-[#F2F2F2] rounded-2xl p-5 cursor-pointer"
+          className="border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer"
           onClick={() => {
             router.push("/dashboard/simpleDashboard/losses")
           }}
@@ -55,10 +55,10 @@ const SimpleDashboard = () => {
           </div>
 
           <div className="mt-[7px]">
-            <h1 className="text-[40px]">982</h1>
+            <h1 className="md:text-[40px] text-[20px]">982</h1>
           </div>
 
-          <div className="flex items-center gap-[7px] mt-[18px]">
+          <div className="flex items-center gap-[7px] md:mt-[18px] mt-4">
             <UpArrow color="red" />
 
             <h4 className="text-red-500">MoM</h4>
@@ -67,7 +67,7 @@ const SimpleDashboard = () => {
         </div>
 
         <div
-          className="border border-[#F2F2F2] rounded-2xl p-5 cursor-pointer"
+          className="border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer"
           onClick={() => {
             router.push("/dashboard/simpleDashboard/income")
           }}
@@ -80,10 +80,10 @@ const SimpleDashboard = () => {
           </div>
 
           <div className="mt-[7px]">
-            <h1 className="text-[40px]">982</h1>
+            <h1 className="md:text-[40px] text-[20px]">982</h1>
           </div>
 
-          <div className="flex items-center gap-[7px] mt-[18px]">
+          <div className="flex items-center gap-[7px] md:mt-[18px] mt-4">
             <UpArrow color="#54D2D1" />
 
             <h4 className="text-[#54D2D1]">MoM</h4>
@@ -92,7 +92,7 @@ const SimpleDashboard = () => {
         </div>
 
         <div
-          className="border border-[#F2F2F2] rounded-2xl p-5 cursor-pointer"
+          className="border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer"
           onClick={() => {
             router.push("/insurance")
           }}
@@ -108,7 +108,7 @@ const SimpleDashboard = () => {
             <h4 className="font-bricolage">Get Your Insurance</h4>
           </div>
 
-          <div className="flex items-center gap-[7px] mt-[25px]">
+          <div className="flex items-center gap-[7px] md:mt-[25px] mt-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -119,7 +119,7 @@ const SimpleDashboard = () => {
               <path d="M216,88H168V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V88H40a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16H88v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V168h48a16,16,0,0,0,16-16V104A16,16,0,0,0,216,88Zm0,64H160a8,8,0,0,0-8,8v56H104V160a8,8,0,0,0-8-8H40V104H96a8,8,0,0,0,8-8V40h48V96a8,8,0,0,0,8,8h56Z" />
             </svg>
 
-            <h4 className="text-primary font-semibold font-bricolage text-xs">
+            <h4 className="text-primary font-semibold font-bricolage md:text-xs text-[10px]">
               Farm Secure
             </h4>
             <h4 className="text-primary font-semibold font-bricolage text-xs">
@@ -129,12 +129,14 @@ const SimpleDashboard = () => {
         </div>
       </div>
 
-      <div className="mt-[85px] gap-8 flex items-center ">
-        <div className="px-6 py-[27px] rounded-[16px] border border-[#F2F2F2] w-[661px]">
+      {/* desktop */}
+
+      <div className="md:mt-[85px] mt-[40px] gap-8 md:flex md:items-center  md:space-y-0 space-y-4 ">
+        <div className="md:px-6 px-2 py-[27px] rounded-[16px] border border-[#F2F2F2] md:w-[661px] w-[300px] container">
           <div className="flex items-center gap-[10px]">
             <TotalIcon color="#54D2D1" />
 
-            <p>Total Earnings</p>
+            <p className="md:text-base text-sm">Total Earnings</p>
           </div>
 
           <ChartComponent
@@ -147,7 +149,7 @@ const SimpleDashboard = () => {
         <SoilAnalysis />
       </div>
 
-      <div className="mt-[42px] w-[713px]  p-6 rounded-[16px] border border-[#F2F2F2]">
+      <div className="md:mt-[42px] mt-[32px] md:w-[713px] w-[300px] md:p-6 rounded-[16px] border border-[#F2F2F2]">
         <WeatherChart />
       </div>
     </>
