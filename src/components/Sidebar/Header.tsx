@@ -23,7 +23,10 @@ const Header = () => {
           Crop Guardian
         </h3>
 
-        <div className=" flex items-end justify-end left-0 gap-4">
+        <div
+          className=" flex items-end justify-end left-0 gap-4"
+          onClick={() => router.push("/account")}
+        >
           <p className="text-[#004064] text-[15px]">Ndagijimana Seth</p>
           <div className="w-8 h-8 p-4 flex items-center justify-center rounded-[66px] bg-black">
             <p className="text-lg text-white">K</p>
