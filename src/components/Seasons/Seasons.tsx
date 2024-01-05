@@ -19,7 +19,7 @@ const Seasons = () => {
     setIsRotated(!isrotated)
   }
   return (
-    <div className="grid grid-cols-2 gap-6 mt-[52px]">
+    <div className="grid md:grid-cols-2 grid-cols-1 gap-6 mt-[52px]">
       <div className="border border-[#F2F2F2] rounded-[16px] p-[14.3px]">
         <div className="flex items-start justify-between">
           <h4 className="font-bricolage font-semibold">Sun Season</h4>
