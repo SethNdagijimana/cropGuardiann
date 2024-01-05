@@ -9,7 +9,7 @@ const Doubt = () => {
 
   return (
     <div>
-      <div className="border border-[#F2F2F2] rounded-2xl gap-[7px] w-[250px] p-5 space-y-[22px]">
+      <div className="border border-[#F2F2F2] rounded-2xl gap-[7px] md:w-[250px] md:p-5 p-2 md:space-y-[22px]">
         <div className="flex items-center justify-between">
           <h4 className="font-bricolage font-semibold">Area of doubt</h4>
           <div className="w-12 h-12 p-2 flex items-center justify-center rounded-[32px] bg-[#FAEEEE]">
@@ -18,7 +18,7 @@ const Doubt = () => {
         </div>
 
         <div className="mt-[7px]">
-          <h1 className="text-[40px]">982</h1>
+          <h1 className="md:text-[40px] text-xl">982</h1>
         </div>
 
         <div className="flex items-center gap-[7px] mt-[18px]">
