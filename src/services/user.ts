@@ -27,3 +27,15 @@ export const logIn = async ({ email, password }: SigninType) => {
 
   return result
 }
+
+export const getUser = async (userId: string) => {
+  const response = await fetch(process.env.APP_URL + `/api/user/get`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userId })
+  })
+
+  const result = await response.json()
+
+  return result
+}
