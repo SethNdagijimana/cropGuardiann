@@ -43,6 +43,8 @@ const SignIn = () => {
         redirect: false
       })
 
+      console.log("SignIn Response=>>>>:", result)
+
       if (result?.error) {
         toast({
           variant: "destructive",
