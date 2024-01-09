@@ -5,9 +5,9 @@ import { NextRequest, NextResponse } from "next/server"
 
 export { default } from "next-auth/middleware"
 
-export const dynamic = {
-  matcher: ["/((?!api/|_next/|_static/|_vercel|[\\w-]+\\.\\w+).*)"]
-}
+// export const config = {
+//   matcher: ["/((?!api/|_next/|_static/|_vercel|[\\w-]+\\.\\w+).*)"]
+// }
 
 export async function middleware(req: NextRequest, res: NextResponse) {
   const session = await getToken({ req })
