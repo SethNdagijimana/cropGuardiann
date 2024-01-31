@@ -1,5 +1,6 @@
 "use client"
 
+import BarChart from "@/components/Chart/BarChart"
 import PieChart from "@/components/Chart/Pie"
 import AreaOfDoubtIcon from "@/components/Icon/AreaOfDoubtIcon"
 import LossesIcon from "@/components/Icon/LossesIcon"
@@ -91,11 +92,26 @@ const Prediction = () => {
         <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
           <PieChart />
         </div>
-        <div className="bg-yellow-500">2</div>
-        <div className="bg-green-500">3</div>
-        <div className="bg-blue-500">4</div>
-        <div className="bg-purple-500">5</div>
-        <div className="bg-orange-500">6</div>
+
+        <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
+          <BarChart title="Prediction of Fibre" />
+        </div>
+
+        <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
+          <BarChart title="Prediction of Vitamins" />
+        </div>
+
+        <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
+          <BarChart title="Prediction of Fat" />
+        </div>
+
+        <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
+          <BarChart title="Prediction of Carboohydrate" />
+        </div>
+
+        <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
+          <BarChart title="Prediction of Protein" />
+        </div>
       </div>
     </>
   )
