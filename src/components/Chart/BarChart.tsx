@@ -44,7 +44,7 @@ const BarChart = ({ title }: BarChartProps) => {
       },
       title: {
         display: true,
-        text: title // Use the title prop here
+        text: title
       }
     },
     scales: {
