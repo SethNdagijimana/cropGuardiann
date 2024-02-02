@@ -1,6 +1,8 @@
 "use client"
 
+import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 import AreaOfDoubtIcon from "../Icon/AreaOfDoubtIcon"
 import LossesIcon from "../Icon/LossesIcon"
 import UpArrow from "../Icon/UpArrow"
@@ -9,18 +11,29 @@ import Wheat from "../Icon/Wheat"
 const TopBar = () => {
   const router = useRouter()
 
+  const [isActiveTab, setIsActiveTab] = useState(null)
+
+  const handleActiveTab = (activeTab: any) => {
+    setIsActiveTab(isActiveTab === activeTab ? null : activeTab)
+  }
+
   return (
     <div className="grid grid-cols-3 gap-6">
-      <div className="border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer">
-        <div
-          className="flex items-center justify-between"
-          onClick={() => {
-            router.push("/dashboard/predictions")
-          }}
-        >
+      <div
+        className={cn(
+          "border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer",
+          isActiveTab === "CropYield" ? "border-[#9C27B0]" : ""
+        )}
+        onClick={() => {
+          router.push("/dashboard/predictions")
+          handleActiveTab("CropYield")
+        }}
+      >
+        <div className="flex items-center justify-between">
           <h4 className="font-bricolage font-semibold">
             Crop Yield Prediction
           </h4>
+
           <div className="w-12 h-12 p-2 flex items-center justify-center rounded-[32px] bg-[#EEFAFA]">
             <AreaOfDoubtIcon color="#54D2D1" />
           </div>
@@ -39,9 +52,13 @@ const TopBar = () => {
       </div>
 
       <div
-        className="border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer"
+        className={cn(
+          "border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer",
+          isActiveTab === "soil" ? "border-[#9C27B0]" : ""
+        )}
         onClick={() => {
           router.push("/dashboard/predictions/weatherInfo")
+          handleActiveTab("soil")
         }}
       >
         <div className="flex items-center justify-between">
@@ -66,9 +83,13 @@ const TopBar = () => {
       </div>
 
       <div
-        className="border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer"
+        className={cn(
+          "border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer",
+          isActiveTab === "market" ? "border-[#9C27B0]" : ""
+        )}
         onClick={() => {
-          router.push("/dashboard/simpleDashboard/income")
+          router.push("/dashboard/predictions/market-analysis")
+          handleActiveTab("market")
         }}
       >
         <div className="flex items-center justify-between ">

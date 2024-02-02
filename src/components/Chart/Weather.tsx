@@ -2,7 +2,7 @@
 
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Line } from "react-chartjs-2"
+import { Chart } from "react-chartjs-2"
 import { Loader } from "../Loader"
 
 import {
@@ -104,6 +104,7 @@ const WeatherChart = () => {
     datasets: [
       {
         label: "Temperature (°C)",
+        type: "line" as const,
         data: weatherData.temperature,
         borderColor: "rgba(255, 99, 132, 1)",
         borderWidth: 2,
@@ -114,10 +115,11 @@ const WeatherChart = () => {
       },
       {
         label: "Humidity (%)",
+        type: "bar" as const,
         data: weatherData.humidity,
         borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(75,192,192,1)",
         borderWidth: 2,
-        pointBackgroundColor: "rgba(75,192,192,1)",
         pointBorderWidth: 1,
         pointRadius: 4,
         yAxisID: "y1"
@@ -153,7 +155,7 @@ const WeatherChart = () => {
     }
   }
 
-  return <Line data={chartData} options={chartOptions} />
+  return <Chart data={chartData} options={chartOptions} type="bar" />
 }
 
 export default WeatherChart
