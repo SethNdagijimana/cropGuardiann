@@ -25,7 +25,7 @@ Chart.register(
   Legend
 )
 
-interface ChartComponentProps {
+interface CropChartProps {
   bgColor?: string
   borderColor: string
   label: string
@@ -33,29 +33,11 @@ interface ChartComponentProps {
 
 const generateRandomNumber = () => Math.floor(Math.random() * 500)
 
-const ChartComponent = ({
-  bgColor,
-  borderColor,
-  label
-}: ChartComponentProps) => {
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec"
-  ]
+const CropChart = ({ bgColor, borderColor, label }: CropChartProps) => {
+  const labels = ["North", "East", "West", "South", "Kigali City"]
 
   const data = {
     labels,
-
     datasets: [
       {
         fill: true,
@@ -70,4 +52,4 @@ const ChartComponent = ({
   return <Line data={data} />
 }
 
-export default ChartComponent
+export default CropChart
