@@ -185,7 +185,7 @@ const WeatherInfo = () => {
         <div className="flex items-center gap-[10px] mt-8 p-4">
           <TotalIcon color="#54D2D1" />
 
-          <p className="md:text-base text-sm">Weather Date Prediction</p>
+          <p className="md:text-base text-sm">Weather Data Prediction</p>
         </div>
 
         <WeatherChart />

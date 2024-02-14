@@ -17,19 +17,21 @@ const labels = ["North", "South", "East", "West", "Kigali city"]
 
 interface BarChartProps {
   title: string
+  dataset1?: string
+  dataset2?: string
 }
 
-const BarChart = ({ title }: BarChartProps) => {
+const BarChart = ({ title, dataset1, dataset2 }: BarChartProps) => {
   const data = {
     labels,
     datasets: [
       {
-        label: "Dataset 1",
+        label: dataset1,
         data: labels.map(() => generateRandomNumber()),
         backgroundColor: "rgba(255, 99, 132, 0.5)"
       },
       {
-        label: "Dataset 2",
+        label: dataset2,
         data: labels.map(() => generateRandomNumber()),
         backgroundColor: "rgba(53, 162, 235, 0.5)"
       }

@@ -1,2 +1,6 @@
+export { default as BarChart } from "./BarChart"
 export { default as ChartComponent } from "./Chart"
+export { default as LineChart } from "./LineChart"
+export { default as MultiChart } from "./MultiChart"
+export { default as PieChart } from "./Pie"
 export { default as WeatherChart } from "./Weather"
