@@ -20,12 +20,12 @@ const InsurancePolicy = () => {
 
       <div className="mt-20 px-[140px] flex items-center justify-between gap-6  w-full">
         <div className="space-y-6">
-          <h2 className="text-center mb-8 font-bold font-bricolage">
-            Types of insurance
-          </h2>
+          <h2 className=" mb-8 font-bold font-bricolage">Types of insurance</h2>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Crop Insurance</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Crop Insurance
+            </p>
             <p className="text-xs">
               Protects against losses in crop yields due to natural disasters,
               adverse weather conditions, pests, and diseases
@@ -33,7 +33,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Livestock Insurance</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Livestock Insurance
+            </p>
             <p className="text-xs">
               Covers losses in the value of livestock due to events like disease
               outbreaks, accidents, or natural disasters
@@ -41,20 +43,12 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Revenue Insurance</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Equipment Insurance
+            </p>
             <p className="text-xs">
               Safeguards against fluctuations in commodity prices, ensuring
               farmers receive a guaranteed level of revenue for their crops
-            </p>
-          </div>
-
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">
-              Multi-Peril Crop Insurance
-            </p>
-            <p className="text-xs">
-              Comprehensive coverage against multiple risks, including
-              weather-related events, pests, and price fluctuations
             </p>
           </div>
         </div>
@@ -78,7 +72,7 @@ const InsurancePolicy = () => {
 
         <div className="grid grid-cols-2 gap-[43px] px-[140px]">
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Premiums</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">Premiums</p>
             <p className="text-xs">
               Farmers pay premiums to the insurance provider based on factors
               such as the type of coverage, historical risk data, and the
@@ -87,7 +81,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Coverage Limits</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Coverage Limits
+            </p>
             <p className="text-xs">
               Policies specify the maximum amount that will be paid out in the
               event of a covered loss
@@ -95,7 +91,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Deductibles</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Deductibles
+            </p>
             <p className="text-xs">
               The deductible is the portion of the loss that the farmer must
               bear before the insurance coverage kicks in
@@ -103,7 +101,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Indemnity Payments</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Indemnity Payments
+            </p>
             <p className="text-xs">
               In the event of a covered loss, the insurance company makes
               indemnity payments to compensate the farmer for the incurred
@@ -118,9 +118,11 @@ const InsurancePolicy = () => {
           Benefits of Agricultural Insurance
         </h2>
 
-        <div className="grid grid-cols-4 gap-[43px] px-[140px]">
+        <div className="grid grid-cols-2 gap-[43px] px-[140px]">
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Financial Stability</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Financial Stability
+            </p>
             <p className="text-xs">
               Provides financial stability by mitigating the impact of
               unforeseen events on crop yields or livestock losses
@@ -128,7 +130,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Risk Management</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Risk Management
+            </p>
             <p className="text-xs">
               Enables farmers to manage and transfer risks associated with
               unpredictable factors such as weather, pests, and market
@@ -137,7 +141,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Credit Access</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Credit Access
+            </p>
             <p className="text-xs">
               Farmers with insurance coverage may find it easier to access
               credit as it demonstrates a commitment to managing risks, making
@@ -146,7 +152,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Stimulates Investment</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Stimulates Investment
+            </p>
             <p className="text-xs">
               Encourages farmers to invest in modern agricultural practices and
               technologies, knowing that they have a safety net in case of
@@ -163,7 +171,9 @@ const InsurancePolicy = () => {
           </h2>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Premium Affordability</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Premium Affordability
+            </p>
             <p className="text-xs">
               Farmers in some regions may find insurance premiums challenging to
               afford, leading to lower participation rates
@@ -171,7 +181,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Risk Assessment Accuracy</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Risk Assessment Accuracy
+            </p>
             <p className="text-xs">
               The accuracy of risk assessment and premium calculations is
               crucial for the sustainability of agricultural insurance programs.
@@ -179,7 +191,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Data Availability</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Data Availability
+            </p>
             <p className="text-xs">
               Availability and accuracy of historical data on weather patterns,
               crop yields, and other relevant factors are essential for
@@ -188,7 +202,9 @@ const InsurancePolicy = () => {
           </div>
 
           <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage">Policy Design</p>
+            <p className="font-bold font-bricolage text-[#54D2D1]">
+              Policy Design
+            </p>
             <p className="text-xs">
               Developing policies that are both comprehensive and accessible to
               a wide range of farmers is a continuous challenge
@@ -246,8 +262,14 @@ const InsurancePolicy = () => {
             <p className="font-bold font-bricolage">Step 6</p>
 
             <p className="text-xs">
-              For More Information check our Government Program{" "}
-              <Link href={"#gov"}>Click Here</Link>
+              For More Information check our Government Program
+              <Link
+                href={"/apply-insurance"}
+                className="text-base text-[#54D2D1]"
+              >
+                {" "}
+                Click Here
+              </Link>
             </p>
           </div>
         </div>
