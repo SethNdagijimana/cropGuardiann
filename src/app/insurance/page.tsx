@@ -5,6 +5,7 @@ import { GovernmentPolicy } from "@/components/GovernmentPolicy"
 import { InsurancePolicy } from "@/components/InsurancePolicy"
 import Supply from "@/components/Supply/Supply"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
@@ -13,6 +14,11 @@ const Insurance = () => {
   const [showPage, setShowPage] = useState<boolean>(false)
   const [showSupply, setShowSupply] = useState<boolean>(false)
   const [showCollaboration, setShowCollaboration] = useState<boolean>(false)
+  const [isActiveTab, setIsActiveTab] = useState(null)
+
+  const handleActiveTab = (activeTab: any) => {
+    setIsActiveTab(isActiveTab === activeTab ? null : activeTab)
+  }
 
   const handlePage = (page: any) => {
     setShowPage(true)
@@ -32,28 +38,52 @@ const Insurance = () => {
     <div className="container">
       <div className="flex items-center justify-center gap-8 bg-transparent mt-[103px]">
         <Button
+          className={cn(
+            "border border-[#000000] rounded-[32px]",
+            isActiveTab === "insurance" ? "border-[#54D2D1]" : ""
+          )}
           text="Insurance"
           variant={"link"}
           onClick={() => {
-            router.push("/insurance")
             setShowPage(false)
+            handleActiveTab("insurance")
           }}
         />
         <Button
+          className={cn(
+            "border border-[#000000] rounded-[32px]",
+            isActiveTab === "government" ? "border-[#54D2D1]" : ""
+          )}
           text="Government program"
           variant={"link"}
-          id="gov"
-          onClick={() => handlePage("government")}
+          onClick={() => {
+            handlePage("government")
+            handleActiveTab("government")
+          }}
         />
         <Button
+          className={cn(
+            "border border-[#000000] rounded-[32px]",
+            isActiveTab === "supply" ? "border-[#54D2D1]" : ""
+          )}
           text="Supply chain"
           variant={"link"}
-          onClick={() => handlePage("supply")}
+          onClick={() => {
+            handlePage("supply")
+            handleActiveTab("supply")
+          }}
         />
         <Button
+          className={cn(
+            "border border-[#000000] rounded-[32px]",
+            isActiveTab === "collaboration" ? "border-[#54D2D1]" : ""
+          )}
           text="Collaboration"
           variant={"link"}
-          onClick={() => handlePage("collaboration")}
+          onClick={() => {
+            handlePage("collaboration")
+            handleActiveTab("collaboration")
+          }}
         />
       </div>
 

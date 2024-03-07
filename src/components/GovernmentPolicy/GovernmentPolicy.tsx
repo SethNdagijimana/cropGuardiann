@@ -104,7 +104,7 @@ const GovernmentPolicy = () => {
             </h4>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 space-y-6">
+          {/* <div className="bg-white rounded-2xl p-6 space-y-6">
             <p className="text-center font-bold font-bricolage">
               If you don’t have insurance You can Apply for one
             </p>
@@ -169,7 +169,7 @@ const GovernmentPolicy = () => {
                 />
               </div>
             </form>
-          </div>
+          </div> */}
 
           <div className="bg-white rounded-2xl p-6 space-y-6 mt-6">
             <p className="text-center font-bold font-bricolage">
@@ -194,13 +194,41 @@ const GovernmentPolicy = () => {
               />
 
               <FormField label="Location" placeholder="Enter your location" />
+              <FormField label="Id Number" placeholder="Enter your Id" />
+
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select you Insurance" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Insurance</SelectLabel>
+                    <SelectItem value="prime">PRIME</SelectItem>
+                    <SelectItem value="sonarwa">SONARWA</SelectItem>
+                    <SelectItem value="radiant">Radiant</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select you Support" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Insurance</SelectLabel>
+                    <SelectItem value="prime">Equipment</SelectItem>
+                    <SelectItem value="sonarwa">Seeds</SelectItem>
+                    <SelectItem value="radiant">Advisor</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
 
               <FormField
                 isTextArea
                 label="What is Your support in need"
                 placeholder="Tell us what you need we will get back to you shortly"
               />
-              <FormField label="Location" placeholder="Enter your location" />
 
               <div className="flex items-center gap-1">
                 {" "}
@@ -226,13 +254,24 @@ const GovernmentPolicy = () => {
                   className="bg-[#F9F9F9] text-black rounded-[32px]"
                 />
                 <Button
-                  variant={"ghost"}
                   text="Send"
                   type="submit"
-                  className="bg-[#54D2D1] text-black rounded-[32px]"
+                  className="bg-[#54D2D1] rounded-2xl"
                 />
               </div>
             </form>
+          </div>
+
+          <div className="mt-8">
+            <p className="font-semibold">Government Support Alert</p>
+
+            <div className="flex items-center justify-between p-6 rounded-2xl bg-[#fff] mt-2">
+              <h4 className="w-[291px]">
+                set your government alert to receive upcoming deadlines and
+                changes
+              </h4>
+              <Button text="Add Alert" />
+            </div>
           </div>
         </div>
       </div>

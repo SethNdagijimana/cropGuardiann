@@ -3,7 +3,7 @@ import Link from "next/link"
 const Supply = () => {
   return (
     <>
-      <div className="p-6 rounded-2xl bg-[#F2F2F2] mt-[30px]">
+      <div className="p-6 rounded-2xl bg-[#F2F2F2] mt-[77px]">
         <div className="w-[484px] space-y-4">
           <h3 className="text-[24px]">Supply chain management </h3>
           <h4 className="leading-[24px]">
