@@ -41,13 +41,24 @@ export const getUser = async (userId: string) => {
 }
 
 export const getSupport = async (userEmail: string) => {
-  const response = await fetch(process.env.App_URL + `/api/user/get-support`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ userEmail })
-  })
+  try {
+    const response = await fetch(
+      process.env.App_URL + `/api/user/get-support`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userEmail })
+      }
+    )
 
-  const result = await response.json()
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`)
+    }
 
-  return result
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error("Error fetching support:", error)
+    throw error // Re-throw the error to handle it elsewhere if needed
+  }
 }
