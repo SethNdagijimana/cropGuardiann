@@ -216,17 +216,18 @@ const GovernmentPolicy = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Insurance</SelectLabel>
+                    <SelectLabel>Support</SelectLabel>
                     <SelectItem value="prime">Equipment</SelectItem>
                     <SelectItem value="sonarwa">Seeds</SelectItem>
                     <SelectItem value="radiant">Advisor</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
 
               <FormField
                 isTextArea
-                label="What is Your support in need"
+                label="If you choose Other"
                 placeholder="Tell us what you need we will get back to you shortly"
               />
 

@@ -39,3 +39,15 @@ export const getUser = async (userId: string) => {
 
   return result
 }
+
+export const getSupport = async (userEmail: string) => {
+  const response = await fetch(process.env.App_URL + `/api/user/get-support`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userEmail })
+  })
+
+  const result = await response.json()
+
+  return result
+}

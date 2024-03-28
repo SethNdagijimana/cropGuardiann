@@ -17,4 +17,31 @@ model User {
   isEmailVerfied Boolean  @default(true)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @default(now())
+  support        Support?
+}
+
+model Support {
+  id          Int           @id @default(autoincrement())
+  userEmail   String        @unique
+  userName    String
+  user        User          @relation(fields: [userEmail], references: [email])
+  phoneNumber String
+  location    String
+  userId      String
+  insurance   InsuranceType
+  support     SupportType
+  message     String
+}
+
+enum InsuranceType {
+  Prime
+  Sonarwa
+  Radiant
+}
+
+enum SupportType {
+  Equipment
+  Seeds
+  Advisor
+  Other
 }
