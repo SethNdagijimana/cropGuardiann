@@ -15,3 +15,16 @@ export interface updatePasswordType {
   newPassword: string
   retypedNewPassword: string
 }
+
+export interface insuranceType {
+  prime: string
+  sonarwa: string
+  radiant: string
+}
+
+export interface supportType {
+  equipment: string
+  seed: string
+  advisor: string
+  other: string
+}
