@@ -23,8 +23,7 @@ export async function POST(req: Request) {
       !location ||
       !userId ||
       !insurance ||
-      !support ||
-      !message
+      !support
     ) {
       return NextResponse.json(
         { error: true, message: "All fields are required" },
@@ -69,7 +68,7 @@ export async function POST(req: Request) {
         userId,
         insurance,
         support,
-        message
+        message: message !== undefined ? message : null
       }
     })
 

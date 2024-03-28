@@ -30,7 +30,7 @@ model Support {
   userId      String
   insurance   InsuranceType
   support     SupportType
-  message     String
+  message     String?
 }
 
 enum InsuranceType {
