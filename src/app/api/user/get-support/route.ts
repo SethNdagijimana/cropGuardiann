@@ -4,34 +4,36 @@ import { InsuranceType, SupportType } from "@prisma/client"
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
+  const {
+    userName,
+    userEmail,
+    phoneNumber,
+    location,
+    userId,
+    insurance,
+    support,
+    message
+  } = await req.json()
+
+  if (
+    !userName ||
+    !userEmail ||
+    !phoneNumber ||
+    !location ||
+    !userId ||
+    !insurance ||
+    !support ||
+    !message
+  ) {
+    return NextResponse.json(
+      { error: true, message: "all-fields are required" },
+      { status: HttpStatusCode.BAD_REQUEST }
+    )
+  }
+
+  // Check if the user exists
+
   try {
-    const {
-      userName,
-      userEmail,
-      phoneNumber,
-      location,
-      userId,
-      insurance,
-      support,
-      message
-    } = await req.json()
-
-    if (
-      !userName ||
-      !userEmail ||
-      !phoneNumber ||
-      !location ||
-      !userId ||
-      !insurance ||
-      !support
-    ) {
-      return NextResponse.json(
-        { error: true, message: "All fields are required" },
-        { status: HttpStatusCode.BAD_REQUEST }
-      )
-    }
-
-    // Check if the user exists
     const user = await prisma.user.findUnique({
       where: { email: userEmail.toLowerCase() }
     })
@@ -43,7 +45,7 @@ export async function POST(req: Request) {
       )
     }
 
-    // Check if the provided insurance option is valid
+    //check if insurance option is valid
     if (!(insurance in InsuranceType)) {
       return NextResponse.json(
         { error: true, message: "Invalid insurance option" },
@@ -51,37 +53,39 @@ export async function POST(req: Request) {
       )
     }
 
+    //check if support is valid
+
     if (!(support in SupportType)) {
       return NextResponse.json(
-        { error: true, message: "Invalid support option" },
+        { error: true, message: "invalid support option" },
         { status: HttpStatusCode.BAD_REQUEST }
       )
     }
 
-    // Create support
-    const newSupport = await prisma.support.create({
+    //save support in db
+
+    const userSupport = await prisma.support.create({
       data: {
-        userEmail: userEmail.toLowerCase(),
         userName,
+        userEmail: userEmail.toLowerCase(),
         phoneNumber,
         location,
         userId,
         insurance,
         support,
-        message: message !== undefined ? message : null
+        message
       }
     })
 
     return NextResponse.json(
       {
         success: true,
-        message: "Support requested successfully",
-        support: newSupport
+        message: "support create successfully",
+        support: userSupport
       },
       { status: HttpStatusCode.OK }
     )
   } catch (error) {
-    console.error(error)
     return NextResponse.json(
       { error: true, message: "Internal Server Error" },
       { status: HttpStatusCode.INTERNAL_SERVER }

@@ -38,7 +38,8 @@ const GovernmentPolicy = () => {
       !location ||
       !userId ||
       !insurance ||
-      !support
+      !support ||
+      !message
     ) {
       toast({
         variant: "destructive",
@@ -65,11 +66,20 @@ const GovernmentPolicy = () => {
     setIsLoading(true)
 
     try {
-      const data = await getSupport(userEmail)
+      const data = await getSupport(
+        userName,
+        userEmail,
+        phoneNumber,
+        location,
+        userId,
+        insurance,
+        support,
+        message
+      )
 
       if (data.error) {
         toast({
-          variant: "default",
+          variant: "destructive",
           description: data.message
         })
 
@@ -251,6 +261,3 @@ const GovernmentPolicy = () => {
 }
 
 export default GovernmentPolicy
-function setInsurance(value: any) {
-  throw new Error("Function not implemented.")
-}

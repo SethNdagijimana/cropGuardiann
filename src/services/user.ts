@@ -40,25 +40,31 @@ export const getUser = async (userId: string) => {
   return result
 }
 
-export const getSupport = async (userEmail: string) => {
-  try {
-    const response = await fetch(
-      process.env.App_URL + `/api/user/get-support`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userEmail })
-      }
-    )
+export const getSupport = async (
+  userName: string,
+  userEmail: string,
+  phoneNumber: string,
+  location: string,
+  userId: string,
+  insurance: string,
+  support: string,
+  message: string
+) => {
+  const response = await fetch(process.env.APP_URL + `/api/user/get-support`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userName,
+      userEmail,
+      phoneNumber,
+      location,
+      userId,
+      insurance,
+      support,
+      message
+    })
+  })
+  const result = await response.json()
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
-    }
-
-    const data = await response.json()
-    return data
-  } catch (error) {
-    console.error("Error fetching support:", error)
-    throw error // Re-throw the error to handle it elsewhere if needed
-  }
+  return result
 }
