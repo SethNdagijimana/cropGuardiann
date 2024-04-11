@@ -4,10 +4,10 @@ import { hash } from "bcrypt"
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
-  const { email, password, retypedPassword } = await req.json()
+  const { name,email, password, retypedPassword } = await req.json()
 
   // Check if all fields are sent from client
-  if (!email || !password || !retypedPassword) {
+  if (!name || !email || !password || !retypedPassword) {
     return NextResponse.json(
       { error: true, message: "all-fields are required" },
       { status: HttpStatusCode.BAD_REQUEST }
@@ -46,6 +46,7 @@ export async function POST(req: Request) {
     // Save user in DB
     const user = await prisma.user.create({
       data: {
+        name,
         email,
         password: hashedPassword
       }

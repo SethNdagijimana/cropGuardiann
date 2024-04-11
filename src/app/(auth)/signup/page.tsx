@@ -13,7 +13,7 @@ import { useState } from "react"
 const SignUp = () => {
   const [showSignupPage, setShowSignupPage] = useState<boolean>(false)
   const [email, setEmail] = useState("")
-  // const [name, setName] = useState("")
+  const [name, setName] = useState("")
   const [password, setPassword] = useState("")
   const [retypedPassword, setRetypedPassword] = useState("")
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -29,7 +29,7 @@ const SignUp = () => {
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (!email || !password || !retypedPassword) {
+    if (!name || !email || !password || !retypedPassword) {
       toast({
         variant: "destructive",
         description: "all fields are-required"
@@ -50,7 +50,7 @@ const SignUp = () => {
     setIsLoading(true)
 
     try {
-      const data = await signUp({ email, password, retypedPassword })
+      const data = await signUp({name, email, password, retypedPassword })
 
       if (data.error) {
         toast({
@@ -146,14 +146,14 @@ const SignUp = () => {
             <div className="mt-6">
               <form onSubmit={onSubmitHandler} className="space-y-[1.813rem]">
                 <fieldset className="space-y-[1.813rem]" disabled={isLoading}>
-                  {/* <div className="mb-6">
+                  <div className="mb-6">
                     <FormField
-                      label="Name"
+                      label="Enter your full name"
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
-                  </div> */}
+                  </div>
 
                   <div className="mb-6">
                     <FormField

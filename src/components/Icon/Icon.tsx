@@ -11,6 +11,7 @@ import TotalLoss from "./TotalLoss"
 import UpArrow from "./UpArrow"
 import Wheat from "./Wheat"
 import { MainIconProps } from "./icon.type"
+import Edit from "./Edit"
 
 const IconsMap = {
   wheat: Wheat,
@@ -20,7 +21,8 @@ const IconsMap = {
   insuranceIcon: InsuranceIcon,
   totalIcon: TotalIcon,
   totalIncome: TotalIncome,
-  totalLoss: TotalLoss
+  totalLoss: TotalLoss,
+  edit: Edit
 }
 
 interface IconProps extends MainIconProps {

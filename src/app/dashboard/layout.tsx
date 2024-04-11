@@ -1,15 +1,18 @@
 "use client"
 
-import { Header, LeftSideBar } from "@/components/Sidebar"
+import { LeftSideBar } from "@/components/Sidebar"
+import HeaderWidget from "./Widget"
 
 interface DashboardLayoutProps {
   children: React.ReactNode
 }
 
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+  
   return (
     <div className=" w-full overflow-hidden pt-[50px]">
-      <Header />
+      <HeaderWidget />
+      
 
       <div className="h-full block md:flex relative container">
         <LeftSideBar />
