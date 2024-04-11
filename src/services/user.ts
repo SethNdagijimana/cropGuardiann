@@ -1,6 +1,7 @@
-import { SigninType, SignupType } from "@/utils/types"
+import { SigninType, SignupType, updatePasswordType } from "@/utils/types"
 
 export const signUp = async ({
+  name,
   email,
   password,
   retypedPassword
@@ -8,7 +9,7 @@ export const signUp = async ({
   const response = await fetch(`/api/user/create`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password, retypedPassword })
+    body: JSON.stringify({ name, email, password, retypedPassword })
   })
 
   const result = await response.json()
@@ -27,6 +28,30 @@ export const logIn = async ({ email, password }: SigninType) => {
 
   return result
 }
+
+export const changePassword = async ({
+  userId,
+  currentPassword,
+  newPassword,
+  retypedNewPassword
+}: updatePasswordType) => {
+  const response = await fetch(`/api/user/change-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userId,
+      currentPassword,
+      newPassword,
+      retypedNewPassword
+    })
+  })
+
+  const result = await response.json()
+
+  return result
+}
+
+
 
 export const getUser = async (userId: string) => {
   const response = await fetch(process.env.APP_URL + `/api/user/get`, {

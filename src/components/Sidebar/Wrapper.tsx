@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 interface WrapperProps {
   children: React.ReactNode
   className?: string
+  
 }
 
 const Wrapper = ({ children, className }: WrapperProps) => {
