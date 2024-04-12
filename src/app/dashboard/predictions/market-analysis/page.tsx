@@ -2,6 +2,7 @@
 
 import { LineChart } from "@/components/Chart"
 import BarChart from "@/components/Chart/BarChart"
+import MarketChart from "@/components/Chart/MarketChart"
 import TotalIcon from "@/components/Icon/TotalIcon"
 import { Button } from "@/components/ui/button"
 
@@ -89,17 +90,7 @@ const MarketAnalysis = () => {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center gap-[15px]">
-          <TotalIcon color="#54D2D1" />
-
-          <p className="md:text-base text-sm">Market Data </p>
-        </div>
-
-        <BarChart
-          title="Market Prediction"
-          dataset1="Current Market"
-          dataset2="Market Prediction "
-        />
+      
 
         <div className="bg-[#fff] rounded-2xl">
           <div className="flex items-center gap-[10px] mt-8 p-4">
