@@ -1,4 +1,4 @@
-"use client"
+
 
 import { LeftSideBar } from "@/components/Sidebar"
 import HeaderWidget from "./Widget"

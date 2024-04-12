@@ -29,8 +29,8 @@ const AccountPageWidget = ({
   return (
     <div className="container">
       <Button
-        variant="outline"
-        className="bg-white h-10"
+        variant="default"
+        className=" h-10 mt-8"
         text="Back"
         icon={
           <svg
@@ -42,7 +42,7 @@ const AccountPageWidget = ({
           >
             <path
               d="M5.13389 11.6623L10.3183 6.16234C10.4214 6.05296 10.5901 5.99984 10.7026 5.99984C10.8272 5.99984 10.9523 6.04281 11.0514 6.12971C11.263 6.31527 11.2787 6.63159 11.0863 6.83565L6.69014 11.4998L18.4811 11.4998C18.7677 11.4998 18.9995 11.7234 18.9995 11.9717C18.9995 12.22 18.7676 12.4998 18.4811 12.4998L6.69045 12.4998L11.0873 17.1655C11.2797 17.3696 11.264 17.6861 11.0524 17.8714C10.8402 18.056 10.5127 18.0423 10.3196 17.8372L5.1352 12.3372C4.95576 12.1467 4.95576 11.853 5.13389 11.6623Z"
-              fill="#212121"
+              fill="#ffff"
             />
           </svg>
         }
@@ -162,7 +162,7 @@ const AccountPageWidget = ({
           />
 
           <div
-            className="absolute top-0 right-0 rounded-full"
+            className="absolute top-1 right-1 rounded-full"
             onClick={() => router.push(`/account/update-password`)}
           >
             <Edit />
