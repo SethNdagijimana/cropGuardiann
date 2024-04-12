@@ -19,6 +19,7 @@ model User {
   createdAt      DateTime @default(now())
   updatedAt      DateTime @default(now())
   support        Support?
+  feedback       Feedback?
 }
 
 model Support {
@@ -33,6 +34,15 @@ model Support {
   support     SupportType
   message     String?
 }
+
+model Feedback {
+  id        Int      @id @default(autoincrement())
+  userEmail String   @unique   
+  user      User     @relation(fields: [userEmail], references: [email])
+  feedback   String   
+  createdAt DateTime @default(now())
+}
+
 
 enum InsuranceType {
   Prime

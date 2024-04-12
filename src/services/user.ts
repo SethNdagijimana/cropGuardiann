@@ -1,5 +1,6 @@
 import { SigninType, SignupType, updatePasswordType } from "@/utils/types"
 
+
 export const signUp = async ({
   name,
   email,
@@ -89,6 +90,19 @@ export const getSupport = async (
       message
     })
   })
+  const result = await response.json()
+
+  return result
+}
+
+
+export const userFeedback = async (userEmail: string, feedback: string) => {
+  const response = await fetch(process.env.APP_URL + `/api/user/feedback`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userEmail, feedback })
+  })
+
   const result = await response.json()
 
   return result

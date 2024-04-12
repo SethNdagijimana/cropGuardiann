@@ -1,15 +1,73 @@
 "use client"
 
+import { FormField } from "@/components/FormField"
+import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { toast } from "@/components/ui/use-toast"
+import { userFeedback } from "@/services/user"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 const FeedBack = () => {
+
+  const [feedback, setIsFeedback] = useState("")
+  const [email, setIsEmail] = useState("")
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  const router = useRouter()
+
+
+  const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (!feedback || !email) {
+      toast({
+        variant: "destructive",
+        description: "email and FeedBack are required"
+      })
+
+      return
+    }
+  
+    setIsLoading(true)
+
+    try {
+      const data = await userFeedback(email, feedback)
+
+      console.log("Data from API:", data); 
+
+      if (data.error) {
+        
+        toast({
+          variant: "destructive",
+          description: data.message
+        })
+
+        setIsLoading(false)
+
+        return
+      }
+
+    
+      router.push("/feedback")
+    } catch (error) {
+      console.error("Internal error:", error);
+      toast({
+        variant: "destructive",
+        description: "internal error"
+      })
+
+      setIsLoading(false)
+    }
+  }
+
   return (
     <div className="grid grid-cols-2 gap-[32px]">
       <div className="space-y-6 text-center flex items-center justify-center flex-col">
-        <p className="text-2xl">Give Us A Feedback</p>
+        <p className="text-2xl font-bricolage font-bold">Give Us A Feedback</p>
 
-        <p className="text-xm font-normal">
+        <p className="text-base font-bricolage font-semibold">
           Beyond the farming community, agricultural investors find value in the
           system, gaining insights that guide their investment strategies.
         </p>
@@ -20,12 +78,13 @@ const FeedBack = () => {
           </SheetTrigger>
 
           <SheetContent className="w-[537px] pt-[70px] px-[38px] mx-auto">
-            <div className="h-[499px] w-[328px] rounded-[16px]  bg-gradient-to-b from-teal-900 via-teal-700 to-[#DFEAF3]">
+        <form onSubmit={onSubmitHandler}>
+        <div className="h-[499px] w-[328px] rounded-[16px]  bg-gradient-to-b from-teal-900 via-teal-700 to-[#DFEAF3]">
               <h2 className="p-8 text-center text-2xl text-white font-bricolage ">
                 Hi there!! Your FeeBack is important to us
               </h2>
 
-              <div className="flex items-center justify-between px-4 py-[10px] w-[297px] rounded-[10px] bg-white mx-auto gap-2 mt-[98px]">
+              {/* <div className="flex items-center justify-between px-4 py-[10px] w-[297px] rounded-[10px] bg-white mx-auto gap-2 mt-[98px]">
                 <div className="space-y-[10px]">
                   <label className="text-sm font-light text-black">
                     Send us your feedback
@@ -51,25 +110,42 @@ const FeedBack = () => {
                     />
                   </svg>
                 </div>
-              </div>
+              </div> */}
 
-              {/* <div className="w-full px-[10px] py-4 mx-auto flex items-center justify-center rounded-[10px]">
+              <div className="w-full px-4 rounded-[10px]">
+
+              <FormField
+                  label="your user Email"
+                  type="email"
+                  className="mt-20  w-[300px]"
+                  placeholder="Your Email"
+                  value={email}
+                  onChange={(e) => setIsEmail(e.target.value)}
+                />
+
+
                 <FormField
                   label="Send us your feedback"
                   isTextArea
-                  className="mt-20 space-y-[10px] w-[300px]"
+                  className="mt-4 w-[300px]"
                   placeholder="Your feedback..."
+                  value={feedback}
+                  onChange={(e) => setIsFeedback(e.target.value)}
                 />
+
+                
               </div>
 
               <div className="p-2 w-full flex items-center justify-between">
                 <Button
                   text="Send"
-                  variant={"ghost"}
-                  className=" w-full rounded-[32px]  text-center"
+                  variant={"default"}
+                  type="submit"
+                  className=" w-full rounded-[32px]  text-center text-white"
                 />
-              </div> */}
+              </div>
             </div>
+        </form>
           </SheetContent>
         </Sheet>
       </div>
