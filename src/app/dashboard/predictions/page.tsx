@@ -15,29 +15,29 @@ const Prediction = () => {
         </div>
 
         <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
-          <BarChart title="Prediction of Fibre" />
+          <BarChart title="Prediction of Fibre" dataset1="Low" dataset2="High" dataset3="Normal" dataset4="Medium" dataset5="Risk"  />
         </div>
 
         <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
-          <BarChart title="Prediction of Vitamins" />
+          <BarChart title="Prediction of Vitamins" dataset1="Low" dataset2="High" dataset3="Normal" dataset4="Medium" dataset5="Risk"/>
         </div>
 
         <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
-          <BarChart title="Prediction of Fat" />
+          <BarChart title="Prediction of Fat" dataset1="Low" dataset2="High" dataset3="Normal" dataset4="Medium" dataset5="Risk"/>
         </div>
 
         <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
-          <BarChart title="Prediction of Carboohydrate" />
+          <BarChart title="Prediction of Carboohydrate" dataset1="Low" dataset2="High" dataset3="Normal" dataset4="Medium" dataset5="Risk"/>
         </div>
 
         <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
-          <BarChart title="Prediction of Protein" />
+          <BarChart title="Prediction of Protein" dataset1="Low" dataset2="High" dataset3="Normal" dataset4="Medium" dataset5="Risk"/>
         </div>
 
         <CropChart
           label="Crop Yield production per province"
           borderColor="#D25454"
-          bgColor="#E1E1E1"
+          bgColor="#fff"
         />
       </div>
     </>

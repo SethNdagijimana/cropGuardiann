@@ -19,21 +19,39 @@ interface BarChartProps {
   title: string
   dataset1?: string
   dataset2?: string
+  dataset3?: string
+  dataset4?: string
+  dataset5?: string
 }
 
-const BarChart = ({ title, dataset1, dataset2 }: BarChartProps) => {
+const BarChart = ({ title, dataset1, dataset2, dataset3, dataset4, dataset5 }: BarChartProps) => {
   const data = {
     labels,
     datasets: [
       {
         label: dataset1,
         data: labels.map(() => generateRandomNumber()),
-        backgroundColor: "rgba(255, 99, 132, 0.5)"
+        backgroundColor: "#FFD986"
       },
       {
         label: dataset2,
         data: labels.map(() => generateRandomNumber()),
-        backgroundColor: "rgba(53, 162, 235, 0.5)"
+        backgroundColor: "#54D2D1"
+      },
+      {
+        label: dataset3,
+        data: labels.map(() => generateRandomNumber()),
+        backgroundColor: "#E6DDFF"
+      },
+      {
+        label: dataset4,
+        data: labels.map(() => generateRandomNumber()),
+        backgroundColor: "#71CC94"
+      },
+      {
+        label: dataset5,
+        data: labels.map(() => generateRandomNumber()),
+        backgroundColor: "#FF7777"
       }
     ]
   }
