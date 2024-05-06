@@ -11,9 +11,93 @@ import {
   SelectTrigger,
   SelectValue
 } from "@/components/ui/select"
+import { toast } from "@/components/ui/use-toast"
+import { getInsurance } from "@/services/user"
+import { InsuranceType } from "@prisma/client"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 const ApplyInsurance = () => {
+
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [contact, setContact] = useState("")
+  const [userId, setUserId] = useState("")
+  const [prime, setPrime] = useState("")
+  const [sonarwa, setSonarwa] = useState("")
+  const [radiant, setRadiant] = useState ("")
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [insurance, setInsurance] = useState<InsuranceType | "">("");
+
+
+
+  const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (
+      !name ||
+      !email ||
+      !contact ||
+      !userId ||
+      !insurance
+     
+    ) {
+      toast({
+        variant: "destructive",
+        description: "all fields are-required"
+      })
+
+      return
+    }
+
+    if (!(insurance in InsuranceType)) {
+      toast({
+        variant: "destructive",
+        description: "Invalid insurance option"
+      })
+    }
+
+    
+
+    setIsLoading(true)
+
+    try {
+      const data = await getInsurance(
+        name,
+        email,
+        contact,
+        userId,
+       insurance
+       
+      )
+
+      if (data.error) {
+        toast({
+          variant: "destructive",
+          description: data.message
+        })
+
+        setIsLoading(false)
+
+        return
+      }
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        description: error.message
+      })
+
+      setIsLoading(false)
+    }
+
+  }
+
+  // const handleInsuranceChange = (value: string) => {
+  //   setInsurance(value)
+  // }
+
+
+
   const router = useRouter()
   return (
     <>
@@ -26,7 +110,7 @@ const ApplyInsurance = () => {
         <div className="grid grid-cols-2 gap-10">
           <div className="bg-[#F2F2F2] rounded-2xl p-6">
             <h3 className="font-bricolage font-semibold">
-              Crop & LiveStock Insurance
+              Crop & LiveStock Insurance 
             </h3>
 
             <div className="mt-8 flex items-center justify-center gap-4">
@@ -61,35 +145,41 @@ const ApplyInsurance = () => {
               </div>
             </div>
 
-            <form className="space-y-6 mt-4">
+            <form className="space-y-6 mt-4" onSubmit={onSubmitHandler}>
               <FormField
                 label="Enter your name here"
                 placeholder="Your FullName"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
 
               <FormField
                 type="email"
                 label="Enter your email"
                 placeholder="Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
 
               <FormField
                 label="Enter your Contact"
                 placeholder="Your Contact"
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
               />
 
-              <FormField label="Id Number" placeholder="Enter your Id" />
+              <FormField label="Id Number" placeholder="Enter your Id" value={userId} onChange={(e) => setUserId(e.target.value)}/>
 
-              <Select>
+              <Select >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select you Insurance" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Insurance</SelectLabel>
-                    <SelectItem value="prime">PRIME</SelectItem>
-                    <SelectItem value="sonarwa">SONARWA</SelectItem>
-                    <SelectItem value="radiant">Radiant</SelectItem>
+                    <SelectItem value="prime" onChange={(e) => setPrime((e.target as HTMLSelectElement).value)}>PRIME</SelectItem>
+                    <SelectItem value="sonarwa" onChange={(e) => setSonarwa((e.target as HTMLSelectElement).value)}>SONARWA</SelectItem>
+                    <SelectItem value="radiant" onChange={(e) => setRadiant((e.target as HTMLSelectElement).value)}>Radiant</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
