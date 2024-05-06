@@ -9,6 +9,37 @@ import LossesIcon from "../Icon/LossesIcon"
 import UpArrow from "../Icon/UpArrow"
 import Wheat from "../Icon/Wheat"
 
+import dynamic from "next/dynamic"
+
+
+// const AnimatedNumbers = dynamic(
+//   () => {
+//     return import("react-animated-numbers")
+//   },
+//   { ssr: false }
+// )
+
+// const achievementsList = [
+//   {
+//     metric: "Area of Doubt",
+//     value: "70",
+//     postfix: "+"
+//   },
+//   {
+//     metric: "Total Losses",
+//     value: "307",
+//     postfix: "+"
+//   },
+//   {
+//     metric: "Total Income",
+//     value: "80",
+//     postfix: "%"
+//   }
+// ]
+
+
+
+
 const TopNav = () => {
   const router = useRouter()
 
@@ -19,7 +50,9 @@ const TopNav = () => {
   }
 
   return (
+    
     <div className="grid md:grid-cols-4 grid-cols-1 md:gap-x-5  md:mt-[34px] md:space-x-8 md:space-y-0 space-y-8">
+      
       <div
         className={cn(
           "border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer",
@@ -38,7 +71,7 @@ const TopNav = () => {
         </div>
 
         <div className="mt-[7px]">
-          <h1 className="md:text-[40px] text-[20px]">982</h1>
+          <h1 className="md:text-base text-[20px]">150</h1>
         </div>
 
         <div className="flex items-center gap-[7px] md:mt-[18px] mt-4">
@@ -67,7 +100,7 @@ const TopNav = () => {
         </div>
 
         <div className="mt-[7px]">
-          <h1 className="md:text-[40px] text-[20px]">982</h1>
+          <h1 className="md:text-base text-[20px]">150</h1>
         </div>
 
         <div className="flex items-center gap-[7px] md:mt-[18px] mt-4">
@@ -96,7 +129,7 @@ const TopNav = () => {
         </div>
 
         <div className="mt-[7px]">
-          <h1 className="md:text-[40px] text-[20px]">982</h1>
+          <h1 className="md:text-base text-[20px]">80</h1>
         </div>
 
         <div className="flex items-center gap-[7px] md:mt-[18px] mt-4">
@@ -106,7 +139,7 @@ const TopNav = () => {
           <h4 className="text-[#54D2D1]">+40%</h4>
         </div>
       </div>
-
+      
       <div
         className={cn(
           "border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer",
@@ -148,6 +181,7 @@ const TopNav = () => {
         </div>
       </div>
     </div>
+  
   )
 }
 
