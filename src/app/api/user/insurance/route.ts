@@ -1,6 +1,5 @@
 import { prisma } from "@/lib/prisma"
 import { HttpStatusCode } from "@/utils/enums"
-import { InsuranceType, SupportType } from "@prisma/client"
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
@@ -39,15 +38,8 @@ export async function POST(req: Request) {
         { status: HttpStatusCode.BAD_REQUEST }
       )
     }
-
-    //check if insurance option is valid
-    if (!(insurance in InsuranceType)) {
-      return NextResponse.json(
-        { error: true, message: "Invalid insurance option" },
-        { status: HttpStatusCode.BAD_REQUEST }
-      )
-    }
-
+  
+  
     //save insurance in db
 
     const userInsurance = await prisma.insurance.create({

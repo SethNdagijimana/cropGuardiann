@@ -102,7 +102,7 @@ export const getInsurance = async (
   email: string,
   contact: string,
   userId: string,
-  insurance: InsuranceType
+  insurance: string
  
 ) => {
   const response = await fetch(process.env.APP_URL + `/api/user/insurance`, {
