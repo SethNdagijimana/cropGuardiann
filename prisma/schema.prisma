@@ -43,7 +43,7 @@ model Insurance {
   contact   String
   userId    String
   user      User          @relation(fields: [email], references: [email])
-  insurance InsuranceType
+  insurance String
 }
 
 model Feedback {

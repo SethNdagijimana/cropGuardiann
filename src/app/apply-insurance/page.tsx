@@ -23,37 +23,30 @@ const ApplyInsurance = () => {
   const [email, setEmail] = useState("")
   const [contact, setContact] = useState("")
   const [userId, setUserId] = useState("")
-  const [prime, setPrime] = useState("")
-  const [sonarwa, setSonarwa] = useState("")
-  const [radiant, setRadiant] = useState ("")
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [insurance, setInsurance] = useState<InsuranceType | "">("");
+  const [insurance, setInsurance] = useState("")
 
 
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (
-      !name ||
-      !email ||
-      !contact ||
-      !userId ||
-      !insurance
-     
-    ) {
+    console.log("Form data:", { name, email, contact, userId, insurance });
+
+    if (!name || !email || !contact || !userId || !insurance) {
       toast({
         variant: "destructive",
         description: "all fields are-required"
       })
 
+      console.log("Validation failed: All fields are required");
       return
     }
 
-    if (!(insurance in InsuranceType)) {
+   else {
       toast({
         variant: "destructive",
-        description: "Invalid insurance option"
+        description: "internal error"
       })
     }
 
@@ -67,28 +60,31 @@ const ApplyInsurance = () => {
         email,
         contact,
         userId,
-       insurance
-       
-      )
+        insurance
+      );
 
       if (data.error) {
         toast({
           variant: "destructive",
           description: data.message
         })
+        console.log("API request failed:", data.message);
 
         setIsLoading(false)
 
         return
+  
       }
     } catch (error: any) {
       toast({
         variant: "destructive",
         description: error.message
       })
+      console.log("API request error:", error.message);
 
       setIsLoading(false)
     }
+    console.log("Rendered component")
 
   }
 
@@ -113,7 +109,7 @@ const ApplyInsurance = () => {
               Crop & LiveStock Insurance 
             </h3>
 
-            <div className="mt-8 flex items-center justify-center gap-4">
+            {/* <div className="mt-8 flex items-center justify-center gap-4">
               <label
                 htmlFor="file-upload"
                 className="w-[56px] h-[56px] bg-[#ffff] rounded-full flex items-center justify-center overflow-hidden relative"
@@ -143,7 +139,7 @@ const ApplyInsurance = () => {
                   Ensure file uploaded are not greater than 2mb each.
                 </h4>
               </div>
-            </div>
+            </div> */}
 
             <form className="space-y-6 mt-4" onSubmit={onSubmitHandler}>
               <FormField
@@ -169,8 +165,13 @@ const ApplyInsurance = () => {
               />
 
               <FormField label="Id Number" placeholder="Enter your Id" value={userId} onChange={(e) => setUserId(e.target.value)}/>
+              <FormField 
+                  label="insurance" 
+                  placeholder="Enter your insurance" 
+                  value={insurance}
+                   onChange={(e) => setInsurance(e.target.value)}/>
 
-              <Select >
+              {/* <Select >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select you Insurance" />
                 </SelectTrigger>
@@ -182,7 +183,7 @@ const ApplyInsurance = () => {
                     <SelectItem value="radiant" onChange={(e) => setRadiant((e.target as HTMLSelectElement).value)}>Radiant</SelectItem>
                   </SelectGroup>
                 </SelectContent>
-              </Select>
+              </Select> */}
 
               <div className="flex items-center justify-start gap-4">
                 <Button
