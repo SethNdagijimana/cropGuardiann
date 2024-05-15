@@ -78,6 +78,57 @@ export const changePassword = async ({
 }
 
 
+export const resetPassword = async (email: string) => {
+  const response = await fetch(`/api/user/reset-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  })
+
+  const result = await response.json()
+
+  return result
+}
+
+export const generateResetPasswordEmail = async (
+ 
+  email: string
+) => {
+  let url = process.env.APP_URL + "/api/user/generate-reset-password-email"
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  })
+
+  const result = await response.json()
+
+  return result
+}
+
+
+
+export const updatePassword = async ({
+  userId,
+  password,
+  confirmPassword
+}: {
+  userId: string
+  password: string
+  confirmPassword: string
+}) => {
+  const response = await fetch(`/api/user/update-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userId, password, confirmPassword })
+  })
+
+  const result = await response.json()
+
+  return result
+}
+
 
 export const getUser = async (userId: string) => {
   const response = await fetch(process.env.APP_URL + `/api/user/get`, {

@@ -105,7 +105,12 @@ const SignIn = () => {
               </div>
 
               <div className=" flex items-center justify-center">
-                <h4 className="text-[#4397F7]">Forgot your password?</h4>
+              <Link
+                href={`/reset-password`}
+                className="text-[#4397F7] flex justify-end hover:text-[#000000] transition ease-in-out text-sm"
+              >
+                Forgot Password
+              </Link>
               </div>
             </div>
           </div>
