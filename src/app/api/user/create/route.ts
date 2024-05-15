@@ -1,10 +1,11 @@
 import { prisma } from "@/lib/prisma"
+import { generateVerificationEmail } from "@/services/user"
 import { HttpStatusCode } from "@/utils/enums"
 import { hash } from "bcrypt"
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
-  const { name,email, password, retypedPassword } = await req.json()
+  const { name,email, userId, password, retypedPassword } = await req.json()
 
   // Check if all fields are sent from client
   if (!name || !email || !password || !retypedPassword) {
@@ -50,7 +51,8 @@ export async function POST(req: Request) {
         email,
         password: hashedPassword
       }
-    })
+    });
+    
 
     if (!user) {
       return NextResponse.json(
@@ -62,13 +64,16 @@ export async function POST(req: Request) {
       )
     }
 
-    // await generateVerificationEmail(user.id, user.email, lang, true)
+    await generateVerificationEmail(user.email,true)
+
+    console.log("email sent....", generateVerificationEmail)
 
     return NextResponse.json(
       { success: true, message: "user created successfully" },
       { status: HttpStatusCode.OK }
     )
   } catch (error) {
+    console.error('Internal Server Error:', error); 
     return NextResponse.json(
       { error: true, message: "Internal-Server error" },
       { status: HttpStatusCode.INTERNAL_SERVER }
