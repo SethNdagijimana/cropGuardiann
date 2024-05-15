@@ -36,6 +36,7 @@ model Support {
   message     String?
 }
 
+
 model Insurance {
   id        Int           @id @default(autoincrement())
   name      String
@@ -57,6 +58,16 @@ model Feedback {
 model emailToken {
   id        Int     @id @default(autoincrement())
   email     String  @unique
+  token     String   @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model resetPasswordToken {
+  id        Int    @id @default(autoincrement())
+  userId    String
+  email     String
   token     String   @unique
   isActive  Boolean  @default(true)
   createdAt DateTime @default(now())
