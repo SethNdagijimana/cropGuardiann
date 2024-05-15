@@ -153,7 +153,9 @@ const SignUp = () => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
+              
                   </div>
+
 
                   <div className="mb-6">
                     <FormField

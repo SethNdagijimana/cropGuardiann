@@ -1,5 +1,5 @@
 import { SigninType, SignupType, updatePasswordType } from "@/utils/types"
-import { InsuranceType } from "@prisma/client"
+import { InsuranceType } from "@prisma/client/edge"
 
 
 export const signUp = async ({
@@ -18,6 +18,30 @@ export const signUp = async ({
 
   return result
 }
+
+export const generateVerificationEmail = async (
+  email: string,
+  isServer?: boolean
+) => {
+  let url = "/api/user/generate-verification-email"
+
+  if (isServer) {
+    url = process.env.APP_URL + "/api/user/generate-verification-email"
+  }
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email})
+  })
+
+  const result = await response.json()
+
+  return result
+}
+
+
+
 
 export const logIn = async ({ email, password }: SigninType) => {
   const response = await fetch(process.env.APP_URL + `/api/user/signin`, {

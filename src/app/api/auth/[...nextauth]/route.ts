@@ -1,5 +1,6 @@
 import { logIn } from "@/services/user"
-import { User } from "@prisma/client"
+import { User } from "@prisma/client/edge"
+// import { User } from "@prisma/client"
 import { NextAuthOptions } from "next-auth"
 import NextAuth from "next-auth/next"
 import CredentialsProvider from "next-auth/providers/credentials"
