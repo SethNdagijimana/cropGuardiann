@@ -171,31 +171,28 @@ export const getSupport = async (
   return result
 }
 
+export const getInsurance = async (name: string, email: string, contact: string, userId: string, insurance: string) => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/user/insurance`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, contact, userId, insurance })
+    });
 
-export const getInsurance = async (
-  name: string,
-  email: string,
-  contact: string,
-  userId: string,
-  insurance: string
- 
-) => {
-  const response = await fetch(process.env.APP_URL + `/api/user/insurance`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      name,
-      email,
-      contact,
-      userId,
-      insurance
-     
-    })
-  })
-  const result = await response.json()
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error(`Error: ${response.status} - ${response.statusText}`);
+      return { error: true, message: errorData.message || "An error occurred" };
+    }
 
-  return result
-}
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Fetch error:", error);
+    return { error: true, message: "insurance error"};
+  }
+};
+
 
 
 

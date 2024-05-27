@@ -50,8 +50,6 @@ const ApplyInsurance = () => {
       })
     }
 
-    
-
     setIsLoading(true)
 
     try {
@@ -106,7 +104,7 @@ const ApplyInsurance = () => {
         <div className="grid grid-cols-2 gap-10">
           <div className="bg-[#F2F2F2] rounded-2xl p-6">
             <h3 className="font-bricolage font-semibold">
-              Crop & LiveStock Insurance 
+              Crop Insurance 
             </h3>
 
             {/* <div className="mt-8 flex items-center justify-center gap-4">
@@ -170,20 +168,6 @@ const ApplyInsurance = () => {
                   placeholder="Enter your insurance" 
                   value={insurance}
                    onChange={(e) => setInsurance(e.target.value)}/>
-
-              {/* <Select >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select you Insurance" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Insurance</SelectLabel>
-                    <SelectItem value="prime" onChange={(e) => setPrime((e.target as HTMLSelectElement).value)}>PRIME</SelectItem>
-                    <SelectItem value="sonarwa" onChange={(e) => setSonarwa((e.target as HTMLSelectElement).value)}>SONARWA</SelectItem>
-                    <SelectItem value="radiant" onChange={(e) => setRadiant((e.target as HTMLSelectElement).value)}>Radiant</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select> */}
 
               <div className="flex items-center justify-start gap-4">
                 <Button
