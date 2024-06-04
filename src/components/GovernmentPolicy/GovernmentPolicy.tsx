@@ -1,14 +1,5 @@
 "use client"
 
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue
-} from "@/components/ui/select"
 import { getSupport } from "@/services/user"
 import { InsuranceType, SupportType } from "@prisma/client"
 import { useState } from "react"
@@ -16,6 +7,7 @@ import { FormField } from "../FormField"
 import { Button } from "../ui/button"
 import { toast } from "../ui/use-toast"
 import Policy from "./Policy"
+import { cn } from "@/lib/utils"
 
 const GovernmentPolicy = () => {
   const [userName, setUserName] = useState("")
@@ -47,20 +39,6 @@ const GovernmentPolicy = () => {
       })
 
       return
-    }
-
-    if (!(insurance in InsuranceType)) {
-      toast({
-        variant: "destructive",
-        description: "Invalid insurance option"
-      })
-    }
-
-    if (!(support in SupportType)) {
-      toast({
-        variant: "destructive",
-        description: "Invalid support option"
-      })
     }
 
     setIsLoading(true)
@@ -97,12 +75,12 @@ const GovernmentPolicy = () => {
     }
   }
 
-  const handleInsuranceChange = (value: string) => {
-    setInsurance(value)
-  }
 
-  const handleSupportChange = (value: string) => {
-    setSupport(value)
+  const handleAlert = () => {
+    toast({
+      variant: "default",
+      description: "You will receive a notification if anything is changed"
+    })
   }
 
   return (
@@ -163,45 +141,22 @@ const GovernmentPolicy = () => {
                 onChange={(e) => setUserId(e.target.value)}
               />
 
-              <Select
-                onValueChange={(value) => {
-                  handleInsuranceChange(value)
-                }}
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select your Insurance" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Insurance</SelectLabel>
-                    {Object.values(InsuranceType).map((insuranceType) => (
-                      <SelectItem key={insuranceType} value={insuranceType}>
-                        {insuranceType}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
 
-              <Select
-                onValueChange={(value) => {
-                  handleSupportChange(value)
-                }}
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select your Support" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Support</SelectLabel>
-                    {Object.values(SupportType).map((supportType) => (
-                      <SelectItem key={supportType} value={supportType}>
-                        {supportType}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+              <FormField
+                label="Insurance"
+                placeholder="Enter your Insurance"
+                value={insurance}
+                onChange={(e) => setInsurance(e.target.value)}
+              />
+
+              <FormField
+                label="Support"
+                placeholder="Request Support"
+                value={support}
+                onChange={(e) => setSupport(e.target.value)}
+              />
+
+             
 
               <FormField
                 isTextArea
@@ -212,7 +167,7 @@ const GovernmentPolicy = () => {
               />
 
               <div className="flex items-center gap-1">
-                {" "}
+               
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -235,10 +190,12 @@ const GovernmentPolicy = () => {
                   className="bg-[#F9F9F9] text-black rounded-[32px]"
                 />
                 <Button
-                  text="Send"
                   type="submit"
+                  disabled={isLoading}
                   className="bg-[#54D2D1] rounded-2xl"
-                />
+                >
+                  {isLoading ? "Requesting..." : "Send"}
+                  </Button>
               </div>
             </form>
           </div>
@@ -251,7 +208,7 @@ const GovernmentPolicy = () => {
                 set your government alert to receive upcoming deadlines and
                 changes
               </h4>
-              <Button text="Add Alert" />
+              <Button text="Add Alert" onClick={handleAlert}/>
             </div>
           </div>
         </div>

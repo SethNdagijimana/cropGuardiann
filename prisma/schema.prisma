@@ -31,8 +31,8 @@ model Support {
   phoneNumber String
   location    String
   userId      String
-  insurance   InsuranceType
-  support     SupportType
+  insurance   String
+  support     String
   message     String?
 }
 

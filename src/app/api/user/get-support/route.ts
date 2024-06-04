@@ -1,7 +1,7 @@
-import { prisma } from "@/lib/prisma"
-import { HttpStatusCode } from "@/utils/enums"
-import { InsuranceType, SupportType } from "@prisma/client"
-import { NextResponse } from "next/server"
+import { prisma } from "@/lib/prisma";
+import { HttpStatusCode } from "@/utils/enums";
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   const {
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     insurance,
     support,
     message
-  } = await req.json()
+  } = await req.json();
 
   if (
     !userName ||
@@ -26,43 +26,22 @@ export async function POST(req: Request) {
     !message
   ) {
     return NextResponse.json(
-      { error: true, message: "all-fields are required" },
+      { error: true, message: "All fields are required" },
       { status: HttpStatusCode.BAD_REQUEST }
-    )
+    );
   }
-
-  // Check if the user exists
 
   try {
     const user = await prisma.user.findUnique({
       where: { email: userEmail.toLowerCase() }
-    })
+    });
 
     if (!user) {
       return NextResponse.json(
         { error: true, message: "User not found" },
         { status: HttpStatusCode.BAD_REQUEST }
-      )
+      );
     }
-
-    //check if insurance option is valid
-    if (!(insurance in InsuranceType)) {
-      return NextResponse.json(
-        { error: true, message: "Invalid insurance option" },
-        { status: HttpStatusCode.BAD_REQUEST }
-      )
-    }
-
-    //check if support is valid
-
-    if (!(support in SupportType)) {
-      return NextResponse.json(
-        { error: true, message: "invalid support option" },
-        { status: HttpStatusCode.BAD_REQUEST }
-      )
-    }
-
-    //save support in db
 
     const userSupport = await prisma.support.create({
       data: {
@@ -75,20 +54,47 @@ export async function POST(req: Request) {
         support,
         message
       }
-    })
+    });
+
+    // Send an email notification
+    const transporter = nodemailer.createTransport({
+      host: "smtp.google.com", 
+      port: 587,
+      secure: false, 
+      auth: {
+        user: "sethreas@gmail.com",
+        pass: "syjsyhgdocehrrqg"
+      }
+    });
+
+    const mailOptions = {
+      from: userEmail,
+      to: "sethreas@gmail.com",
+      subject: "New Support Request",
+      text: `You have received a new support request from ${userName}. Here are the details:
+      - Email: ${userEmail}
+      - Phone: ${phoneNumber}
+      - Location: ${location}
+      - User ID: ${userId}
+      - Insurance: ${insurance}
+      - Support: ${support}
+      - Message: ${message}`
+    };
+
+    await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
       {
         success: true,
-        message: "support create successfully",
+        message: "Support created successfully and email notification sent",
         support: userSupport
       },
       { status: HttpStatusCode.OK }
-    )
+    );
   } catch (error) {
     return NextResponse.json(
       { error: true, message: "Internal Server Error" },
       { status: HttpStatusCode.INTERNAL_SERVER }
-    )
+    );
   }
 }
