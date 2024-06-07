@@ -1,42 +1,30 @@
 import { prisma } from "@/lib/prisma";
 import { HttpStatusCode } from "@/utils/enums";
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
-  const {
-    userName,
-    userEmail,
-    phoneNumber,
-    location,
-    userId,
-    insurance,
-    support,
-    message
-  } = await req.json();
-
-  if (
-    !userName ||
-    !userEmail ||
-    !phoneNumber ||
-    !location ||
-    !userId ||
-    !insurance ||
-    !support ||
-    !message
-  ) {
-    return NextResponse.json(
-      { error: true, message: "All fields are required" },
-      { status: HttpStatusCode.BAD_REQUEST }
-    );
-  }
-
   try {
+    console.log("Request received");
+
+    const { userName, userEmail, phoneNumber, location, userId, insurance, support, message } = await req.json();
+    
+    console.log("Request data:", { userName, userEmail, phoneNumber, location, userId, insurance, support, message });
+
+    if (!userName || !userEmail || !phoneNumber || !location || !userId || !insurance || !support || !message) {
+      console.error("Validation error: missing fields");
+      return NextResponse.json(
+        { error: true, message: "All fields are required" },
+        { status: HttpStatusCode.BAD_REQUEST }
+      );
+    }
+
     const user = await prisma.user.findUnique({
       where: { email: userEmail.toLowerCase() }
     });
 
     if (!user) {
+      console.error("User not found");
       return NextResponse.json(
         { error: true, message: "User not found" },
         { status: HttpStatusCode.BAD_REQUEST }
@@ -56,15 +44,12 @@ export async function POST(req: Request) {
       }
     });
 
-    // Send an email notification
     const transporter = nodemailer.createTransport({
-      host: "smtp.google.com", 
-      port: 587,
-      secure: false, 
+      service: "gmail",
       auth: {
-        user: "sethreas@gmail.com",
-        pass: "syjsyhgdocehrrqg"
-      }
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
     });
 
     const mailOptions = {
@@ -83,6 +68,8 @@ export async function POST(req: Request) {
 
     await transporter.sendMail(mailOptions);
 
+    console.log("Support request created and email sent successfully");
+
     return NextResponse.json(
       {
         success: true,
@@ -92,6 +79,7 @@ export async function POST(req: Request) {
       { status: HttpStatusCode.OK }
     );
   } catch (error) {
+    console.error("Internal Server Error:", error);
     return NextResponse.json(
       { error: true, message: "Internal Server Error" },
       { status: HttpStatusCode.INTERNAL_SERVER }

@@ -1,13 +1,12 @@
 "use client"
 
 import { getSupport } from "@/services/user"
-import { InsuranceType, SupportType } from "@prisma/client"
-import { useState } from "react"
 import { FormField } from "../FormField"
 import { Button } from "../ui/button"
 import { toast } from "../ui/use-toast"
 import Policy from "./Policy"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
 
 const GovernmentPolicy = () => {
   const [userName, setUserName] = useState("")
@@ -20,29 +19,73 @@ const GovernmentPolicy = () => {
   const [message, setMessage] = useState("")
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  // const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault()
 
-    if (
-      !userName ||
-      !userEmail ||
-      !phoneNumber ||
-      !location ||
-      !userId ||
-      !insurance ||
-      !support ||
-      !message
-    ) {
+  //   if (
+  //     !userName ||
+  //     !userEmail ||
+  //     !phoneNumber ||
+  //     !location ||
+  //     !userId ||
+  //     !insurance ||
+  //     !support ||
+  //     !message
+  //   ) {
+  //     toast({
+  //       variant: "destructive",
+  //       description: "all fields are-required"
+  //     })
+
+  //     return
+  //   }
+
+  //   setIsLoading(true)
+
+  //   try {
+  //     const data = await getSupport(
+  //       userName,
+  //       userEmail,
+  //       phoneNumber,
+  //       location,
+  //       userId,
+  //       insurance,
+  //       support,
+  //       message
+  //     )
+
+  //     if (data.error) {
+  //       toast({
+  //         variant: "destructive",
+  //         description: data.message
+  //       })
+
+  //       setIsLoading(false)
+
+  //       return
+  //     }
+  //   } catch (error: any) {
+  //     toast({
+  //       variant: "destructive",
+  //       description: error.message
+  //     })
+
+  //     setIsLoading(false)
+  //   }
+  // }
+  const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  
+    if (!userName || !userEmail || !phoneNumber || !location || !userId || !insurance || !support || !message) {
       toast({
         variant: "destructive",
-        description: "all fields are-required"
-      })
-
-      return
+        description: "All fields are required",
+      });
+      return;
     }
-
-    setIsLoading(true)
-
+  
+    setIsLoading(true);
+  
     try {
       const data = await getSupport(
         userName,
@@ -53,28 +96,29 @@ const GovernmentPolicy = () => {
         insurance,
         support,
         message
-      )
-
+      );
+  
       if (data.error) {
         toast({
           variant: "destructive",
-          description: data.message
-        })
-
-        setIsLoading(false)
-
-        return
+          description: data.message,
+        });
+      } else {
+        toast({
+          variant: "default",
+          description: data.message,
+        });
       }
-    } catch (error: any) {
+    } catch (error) {
       toast({
         variant: "destructive",
-        description: error.message
-      })
-
-      setIsLoading(false)
+        description: "error",
+      });
+    } finally {
+      setIsLoading(false);
     }
-  }
-
+  };
+  
 
   const handleAlert = () => {
     toast({
