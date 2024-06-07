@@ -219,7 +219,7 @@ const GovernmentPolicy = () => {
           <div className="mt-8">
             <p className="font-semibold">Government Support Alert</p>
 
-            <div className="flex items-center justify-between p-6 rounded-2xl bg-[#fff] mt-2">
+            <div className="flex items-center justify-between p-6 rounded-2xl bg-[#F5F6F8] border border-[#0E4D0C] mt-2">
               <h4 className="w-[300px] text-center">
                 Set your government alert to receive upcoming deadlines and
                 changes

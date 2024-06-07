@@ -5,7 +5,7 @@ const InsurancePolicy = () => {
   return (
     <>
       <div className="w-[967px] mx-auto mt-[77px]">
-        <h1 className="text-primary font-semibold font-bricolage text-center">
+        <h1 className="text-[#0E4D0C] font-semibold font-bricolage text-center">
           Get your Insurance
         </h1>
 
@@ -22,8 +22,8 @@ const InsurancePolicy = () => {
         <div className="space-y-6">
           <h2 className=" mb-8 font-bold font-bricolage">Types of insurance</h2>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Crop Insurance
             </p>
             <p className="text-xs">
@@ -32,8 +32,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Livestock Insurance
             </p>
             <p className="text-xs">
@@ -42,8 +42,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Equipment Insurance
             </p>
             <p className="text-xs">
@@ -71,8 +71,8 @@ const InsurancePolicy = () => {
         </h2>
 
         <div className="grid grid-cols-2 gap-[43px] px-[140px]">
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">Premiums</p>
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">Premiums</p>
             <p className="text-xs">
               Farmers pay premiums to the insurance provider based on factors
               such as the type of coverage, historical risk data, and the
@@ -80,8 +80,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Coverage Limits
             </p>
             <p className="text-xs">
@@ -90,8 +90,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Deductibles
             </p>
             <p className="text-xs">
@@ -100,8 +100,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Indemnity Payments
             </p>
             <p className="text-xs">
@@ -119,8 +119,8 @@ const InsurancePolicy = () => {
         </h2>
 
         <div className="grid grid-cols-2 gap-[43px] px-[140px]">
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Financial Stability
             </p>
             <p className="text-xs">
@@ -129,8 +129,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Risk Management
             </p>
             <p className="text-xs">
@@ -140,8 +140,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Credit Access
             </p>
             <p className="text-xs">
@@ -151,8 +151,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Stimulates Investment
             </p>
             <p className="text-xs">
@@ -170,8 +170,8 @@ const InsurancePolicy = () => {
             Challenges and Considerations
           </h2>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Premium Affordability
             </p>
             <p className="text-xs">
@@ -180,8 +180,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Risk Assessment Accuracy
             </p>
             <p className="text-xs">
@@ -190,8 +190,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Data Availability
             </p>
             <p className="text-xs">
@@ -201,8 +201,8 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-white space-y-6">
-            <p className="font-bold font-bricolage text-[#54D2D1]">
+          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+            <p className="font-bold font-bricolage text-[#0E6E0C]">
               Policy Design
             </p>
             <p className="text-xs">
@@ -230,22 +230,22 @@ const InsurancePolicy = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-6 px-[147px]">
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+          <div className="p-5 rounded-2xl border border-[#0E6E0C] bg-[#0E4D0C] space-y-6 text-white">
             <p className="font-bold font-bricolage">Step 1</p>
             <p className="text-xs">Request for quotation</p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+          <div className="p-5 rounded-2xl border border-[#0E6E0C] bg-[#0E4D0C] space-y-6 text-white">
             <p className="font-bold font-bricolage">Step 2</p>
             <p className="text-xs">Fill proposal form</p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+          <div className="p-5 rounded-2xl border border-[#0E6E0C] bg-[#0E4D0C] space-y-6 text-white">
             <p className="font-bold font-bricolage">Step 3</p>
             <p className="text-xs">Premium payment</p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+          <div className="p-5 rounded-2xl border border-[#0E6E0C] bg-[#0E4D0C] space-y-6 text-white">
             <p className="font-bold font-bricolage">Step 4</p>
             <p className="text-xs">
               Provide ID for individuals, RCA certificate for cooperative & RDB
@@ -253,19 +253,19 @@ const InsurancePolicy = () => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+          <div className="p-5 rounded-2xl border border-[#0E6E0C] bg-[#0E4D0C] space-y-6 text-white">
             <p className="font-bold font-bricolage">Step 5</p>
             <p className="text-xs">Sign contract</p>
           </div>
 
-          <div className="p-5 rounded-2xl border border-[#F2F2F2] bg-green-950 space-y-6 text-white">
+          <div className="p-5 rounded-2xl border border-[#0E6E0C] bg-[#0E4D0C] space-y-6 text-white">
             <p className="font-bold font-bricolage">Step 6</p>
 
             <p className="text-xs">
               For More Information check our Government Program
               <Link
                 href={"/apply-insurance"}
-                className="text-base text-[#54D2D1]"
+                className="text-base text-[#6CD365]"
               >
                 {" "}
                 Click Here

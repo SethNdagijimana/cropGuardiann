@@ -14,7 +14,7 @@ const Supply = () => {
         </div>
 
         <div className="grid grid-cols-3 mt-6 gap-4">
-          <div className="p-5 bg-[#FFF] border border-[#E5E5E5] rounded-2xl space-y-4">
+          <div className="p-5 bg-[#FFF] border border-[#0E4D0C] rounded-2xl space-y-4">
             <svg
               width={32}
               height={32}
@@ -28,7 +28,7 @@ const Supply = () => {
               />
             </svg>
 
-            <h4 className="font-bold font-bricolage text-[#54D2D1]">
+            <h4 className="font-bold font-bricolage text-[#0E4D0C]">
               Planning
             </h4>
 
@@ -40,7 +40,7 @@ const Supply = () => {
             </h4>
           </div>
 
-          <div className="p-5 bg-[#FFF] border border-[#E5E5E5] rounded-2xl space-y-4">
+          <div className="p-5 bg-[#FFF] border border-[#0E4D0C] rounded-2xl space-y-4">
             <svg
               width={32}
               height={32}
@@ -54,7 +54,7 @@ const Supply = () => {
               />
             </svg>
 
-            <h4 className="font-bold font-bricolage text-[#54D2D1]">
+            <h4 className="font-bold font-bricolage text-[#0E4D0C]">
               Sourcing
             </h4>
 
@@ -68,7 +68,7 @@ const Supply = () => {
             </h4>
           </div>
 
-          <div className="p-5 bg-[#FFF] border border-[#E5E5E5] rounded-2xl space-y-4">
+          <div className="p-5 bg-[#FFF] border border-[#0E4D0C] rounded-2xl space-y-4">
             <svg
               width={33}
               height={32}
@@ -82,7 +82,7 @@ const Supply = () => {
               />
             </svg>
 
-            <h4 className="font-bold font-bricolage text-[#54D2D1]">Returns</h4>
+            <h4 className="font-bold font-bricolage text-[#0E4D0C]">Returns</h4>
 
             <h4 className="leading-[24px]">
               In the return phase, organizations manage the reverse flow of
@@ -94,7 +94,7 @@ const Supply = () => {
             </h4>
           </div>
 
-          <div className="p-5 bg-[#FFF] border border-[#E5E5E5] rounded-2xl space-y-4">
+          <div className="p-5 bg-[#FFF] border border-[#0E4D0C] rounded-2xl space-y-4">
             <svg
               width={32}
               height={32}
@@ -108,7 +108,7 @@ const Supply = () => {
               />
             </svg>
 
-            <h4 className="font-bold font-bricolage text-[#54D2D1]">
+            <h4 className="font-bold font-bricolage text-[#0E4D0C]">
               Production
             </h4>
 
@@ -120,7 +120,7 @@ const Supply = () => {
             </h4>
           </div>
 
-          <div className="p-5 bg-[#FFF] border border-[#E5E5E5] rounded-2xl space-y-4">
+          <div className="p-5 bg-[#FFF] border border-[#0E4D0C] rounded-2xl space-y-4">
             <svg
               width={33}
               height={32}
@@ -134,7 +134,7 @@ const Supply = () => {
               />
             </svg>
 
-            <h4 className="font-bold font-bricolage text-[#54D2D1]">
+            <h4 className="font-bold font-bricolage text-[#0E4D0C]">
               Distribution
             </h4>
 
@@ -148,7 +148,7 @@ const Supply = () => {
             </h4>
           </div>
 
-          <div className="p-5 bg-[#FFF] border border-[#E5E5E5] rounded-2xl space-y-4">
+          <div className="p-5 bg-[#FFF] border border-[#0E4D0C] rounded-2xl space-y-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={32}
@@ -159,14 +159,14 @@ const Supply = () => {
               <path d="M152.27,37.93a8,8,0,0,1,9.8-5.66,86.22,86.22,0,0,1,61.66,61.66,8,8,0,0,1-5.66,9.8A8.23,8.23,0,0,1,216,104a8,8,0,0,1-7.73-5.94,70.35,70.35,0,0,0-50.33-50.33A8,8,0,0,1,152.27,37.93Zm-2.33,41.8c13.79,3.68,22.65,12.54,26.33,26.33A8,8,0,0,0,184,112a8.23,8.23,0,0,0,2.07-.27,8,8,0,0,0,5.66-9.8c-5.12-19.16-18.5-32.54-37.66-37.66a8,8,0,1,0-4.13,15.46Zm81.94,95.35A56.26,56.26,0,0,1,176,224C96.6,224,32,159.4,32,80A56.26,56.26,0,0,1,80.92,24.12a16,16,0,0,1,16.62,9.52l21.12,47.15,0,.12A16,16,0,0,1,117.39,96c-.18.27-.37.52-.57.77L96,121.45c7.49,15.22,23.41,31,38.83,38.51l24.34-20.71a8.12,8.12,0,0,1,.75-.56,16,16,0,0,1,15.17-1.4l.13.06,47.11,21.11A16,16,0,0,1,231.88,175.08Zm-15.88-2s-.07,0-.11,0h0l-47-21.05-24.35,20.71a8.44,8.44,0,0,1-.74.56,16,16,0,0,1-15.75,1.14c-18.73-9.05-37.4-27.58-46.46-46.11a16,16,0,0,1,1-15.7,6.13,6.13,0,0,1,.57-.77L104,87.15l-21-47a.61.61,0,0,1,0-.12A40.2,40.2,0,0,0,48,80,128.14,128.14,0,0,0,176,208,40.21,40.21,0,0,0,216,173.07Z" />
             </svg>
 
-            <h4 className="font-bold font-bricolage text-[#54D2D1]">
+            <h4 className="font-bold font-bricolage text-[#0E4D0C]">
               Contact Us
             </h4>
 
             <h4 className="leading-[24px]">
               Want to get Any supply chain please make a recommendation through
               Government Program if any problem please contact us{" "}
-              <Link href="/contact-us" className="text-[#54D2D1]">
+              <Link href="/contact-us" className="text-[#0E4D0C]">
                 Click Here to contact us
               </Link>
             </h4>
@@ -188,7 +188,7 @@ const Supply = () => {
           </h4>
         </div>
 
-        <div className="bg-white gap-[36px] grid grid-cols-2 mt-[38px] p-6">
+        <div className="bg-white gap-[36px] grid grid-cols-2 mt-[38px] p-6 rounded-2xl">
           <div className="space-y-6">
             <h3 className="font-semibold font-bricolage">
               Local Farmer Market
@@ -266,7 +266,7 @@ const Supply = () => {
           </h4>
         </div>
 
-        <div className="bg-white gap-[36px] grid grid-cols-2 mt-[38px] p-6">
+        <div className="bg-white gap-[36px] grid grid-cols-2 mt-[38px] p-6 rounded-2xl">
           <div className="space-y-6">
             <h3 className="font-semibold font-bricolage">
               Transportation problem

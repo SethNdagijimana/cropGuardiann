@@ -22,7 +22,7 @@ const TopBar = () => {
       <div
         className={cn(
           "border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer",
-          isActiveTab === "CropYield" ? "border-[#9C27B0]" : ""
+          isActiveTab === "CropYield" ? "border-[#0E4D0C]" : ""
         )}
         onClick={() => {
           router.push("/dashboard/predictions")
@@ -54,7 +54,7 @@ const TopBar = () => {
       <div
         className={cn(
           "border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer",
-          isActiveTab === "soil" ? "border-[#9C27B0]" : ""
+          isActiveTab === "soil" ? "border-[#0E4D0C]" : ""
         )}
         onClick={() => {
           router.push("/dashboard/predictions/weatherInfo")
@@ -85,7 +85,7 @@ const TopBar = () => {
       <div
         className={cn(
           "border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer",
-          isActiveTab === "market" ? "border-[#9C27B0]" : ""
+          isActiveTab === "market" ? "border-[#0E4D0C]" : ""
         )}
         onClick={() => {
           router.push("/dashboard/predictions/market-analysis")
