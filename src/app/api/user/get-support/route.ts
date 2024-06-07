@@ -52,8 +52,9 @@ export async function POST(req: Request) {
       },
     });
 
-    const mailOptions = {
-      from: userEmail,
+    // Email to support team
+    const mailOptionsToSupport = {
+      from: `"${userName}" <${userEmail}>`,  // Using user's email as the sender
       to: "sethreas@gmail.com",
       subject: "New Support Request",
       text: `You have received a new support request from ${userName}. Here are the details:
@@ -66,14 +67,23 @@ export async function POST(req: Request) {
       - Message: ${message}`
     };
 
-    await transporter.sendMail(mailOptions);
+    // Email to the user
+    const mailOptionsToUser = {
+      from: process.env.SMTP_USER,  // Using your authenticated email as the sender
+      to: userEmail,
+      subject: "Support Request Received",
+      text: `Thank you for requesting support, ${userName}! Your request is being processed. You will receive a confirmation email or call within 24 hours.`
+    };
 
-    console.log("Support request created and email sent successfully");
+    await transporter.sendMail(mailOptionsToSupport);
+    await transporter.sendMail(mailOptionsToUser);
+
+    console.log("Support request created and emails sent successfully");
 
     return NextResponse.json(
       {
         success: true,
-        message: "Support created successfully and email notification sent",
+        message: "Support created successfully and email notifications sent",
         support: userSupport
       },
       { status: HttpStatusCode.OK }

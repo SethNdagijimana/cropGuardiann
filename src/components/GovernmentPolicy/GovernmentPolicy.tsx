@@ -1,12 +1,11 @@
-"use client"
-
 import { getSupport } from "@/services/user"
+import { useState } from "react"
 import { FormField } from "../FormField"
 import { Button } from "../ui/button"
 import { toast } from "../ui/use-toast"
 import Policy from "./Policy"
-import { cn } from "@/lib/utils"
-import { useState } from "react"
+import { useRouter } from "next/navigation"
+
 
 const GovernmentPolicy = () => {
   const [userName, setUserName] = useState("")
@@ -18,74 +17,31 @@ const GovernmentPolicy = () => {
   const [support, setSupport] = useState("")
   const [message, setMessage] = useState("")
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const router = useRouter()
 
-  // const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault()
-
-  //   if (
-  //     !userName ||
-  //     !userEmail ||
-  //     !phoneNumber ||
-  //     !location ||
-  //     !userId ||
-  //     !insurance ||
-  //     !support ||
-  //     !message
-  //   ) {
-  //     toast({
-  //       variant: "destructive",
-  //       description: "all fields are-required"
-  //     })
-
-  //     return
-  //   }
-
-  //   setIsLoading(true)
-
-  //   try {
-  //     const data = await getSupport(
-  //       userName,
-  //       userEmail,
-  //       phoneNumber,
-  //       location,
-  //       userId,
-  //       insurance,
-  //       support,
-  //       message
-  //     )
-
-  //     if (data.error) {
-  //       toast({
-  //         variant: "destructive",
-  //         description: data.message
-  //       })
-
-  //       setIsLoading(false)
-
-  //       return
-  //     }
-  //   } catch (error: any) {
-  //     toast({
-  //       variant: "destructive",
-  //       description: error.message
-  //     })
-
-  //     setIsLoading(false)
-  //   }
-  // }
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  
-    if (!userName || !userEmail || !phoneNumber || !location || !userId || !insurance || !support || !message) {
+    e.preventDefault()
+
+    if (
+      !userName ||
+      !userEmail ||
+      !phoneNumber ||
+      !location ||
+      !userId ||
+      !insurance ||
+      !support ||
+      !message
+    ) {
       toast({
         variant: "destructive",
-        description: "All fields are required",
-      });
-      return;
+        description: "All fields are required"
+      })
+
+      return
     }
-  
-    setIsLoading(true);
-  
+
+    setIsLoading(true)
+
     try {
       const data = await getSupport(
         userName,
@@ -96,29 +52,34 @@ const GovernmentPolicy = () => {
         insurance,
         support,
         message
-      );
-  
+      )
+
       if (data.error) {
         toast({
           variant: "destructive",
-          description: data.message,
-        });
-      } else {
-        toast({
-          variant: "default",
-          description: data.message,
-        });
+          description: data.message
+        })
+
+        setIsLoading(false)
+        return
       }
-    } catch (error) {
+
+      toast({
+        variant: "default",
+        description: "Support request sent successfully!"
+      })
+
+      router.push("/dashboard")  // Redirect to the dashboard
+
+    } catch (error: any) {
       toast({
         variant: "destructive",
-        description: "error",
-      });
-    } finally {
-      setIsLoading(false);
+        description: error.message
+      })
+
+      setIsLoading(false)
     }
-  };
-  
+  }
 
   const handleAlert = () => {
     toast({
@@ -185,7 +146,6 @@ const GovernmentPolicy = () => {
                 onChange={(e) => setUserId(e.target.value)}
               />
 
-
               <FormField
                 label="Insurance"
                 placeholder="Enter your Insurance"
@@ -200,8 +160,6 @@ const GovernmentPolicy = () => {
                 onChange={(e) => setSupport(e.target.value)}
               />
 
-             
-
               <FormField
                 isTextArea
                 label="If you choose Other"
@@ -211,7 +169,6 @@ const GovernmentPolicy = () => {
               />
 
               <div className="flex items-center gap-1">
-               
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -239,7 +196,7 @@ const GovernmentPolicy = () => {
                   className="bg-[#54D2D1] rounded-2xl"
                 >
                   {isLoading ? "Requesting..." : "Send"}
-                  </Button>
+                </Button>
               </div>
             </form>
           </div>
@@ -249,10 +206,10 @@ const GovernmentPolicy = () => {
 
             <div className="flex items-center justify-between p-6 rounded-2xl bg-[#fff] mt-2">
               <h4 className="w-[291px]">
-                set your government alert to receive upcoming deadlines and
+                Set your government alert to receive upcoming deadlines and
                 changes
               </h4>
-              <Button text="Add Alert" onClick={handleAlert}/>
+              <Button text="Add Alert" onClick={handleAlert} />
             </div>
           </div>
         </div>
