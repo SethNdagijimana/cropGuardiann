@@ -42,8 +42,8 @@ const WeatherChart = () => {
     let isMounted = true
     const fetchData = async () => {
       try {
-        const apiKey = "c5b9b8edf6531b1bc91417465a2fbd78"
-        const city = "Republic of Rwanda, RW"
+        const apiKey = "c6f2493aac38cf85d0236edabbd9c75f"
+        const city = "Kigali"
         const response = await axios.get(
           `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
         )
