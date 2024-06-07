@@ -5,6 +5,7 @@ import { Button } from "../ui/button"
 import { toast } from "../ui/use-toast"
 import Policy from "./Policy"
 import { useRouter } from "next/navigation"
+import { cn } from "@/lib/utils"
 
 
 const GovernmentPolicy = () => {
@@ -17,6 +18,7 @@ const GovernmentPolicy = () => {
   const [support, setSupport] = useState("")
   const [message, setMessage] = useState("")
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [alertAdded, setAlertAdded] = useState<boolean>(false)
   const router = useRouter()
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -82,6 +84,7 @@ const GovernmentPolicy = () => {
   }
 
   const handleAlert = () => {
+    setAlertAdded(true)
     toast({
       variant: "default",
       description: "You will receive a notification if anything is changed"
@@ -192,8 +195,20 @@ const GovernmentPolicy = () => {
                 />
                 <Button
                   type="submit"
-                  disabled={isLoading}
-                  className="bg-[#54D2D1] rounded-2xl"
+                  disabled={
+                    isLoading || 
+                    !( 
+                      userName &&
+                      userEmail &&
+                      phoneNumber &&
+                      location &&
+                      userId &&
+                      insurance &&
+                      support &&
+                      message
+                    )
+                  }
+                  className="bg-[#0C3E0A] rounded-2xl"
                 >
                   {isLoading ? "Requesting..." : "Send"}
                 </Button>
@@ -205,11 +220,13 @@ const GovernmentPolicy = () => {
             <p className="font-semibold">Government Support Alert</p>
 
             <div className="flex items-center justify-between p-6 rounded-2xl bg-[#fff] mt-2">
-              <h4 className="w-[291px]">
+              <h4 className="w-[300px] text-center">
                 Set your government alert to receive upcoming deadlines and
                 changes
               </h4>
-              <Button text="Add Alert" onClick={handleAlert} />
+              <Button className={cn("rounded-2xl",alertAdded ? "bg-[#0C3E0A]" : "")} onClick={handleAlert} >
+                {alertAdded ? "Alert Added" : "Add Alert"}
+              </Button>
             </div>
           </div>
         </div>
