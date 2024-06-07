@@ -1,5 +1,5 @@
 import { SigninType, SignupType, updatePasswordType } from "@/utils/types"
-import { InsuranceType } from "@prisma/client/edge"
+
 
 
 export const signUp = async ({
@@ -152,7 +152,9 @@ export const getSupport = async (
   support: string,
   message: string
 ) => {
-  const response = await fetch(process.env.APP_URL + `/api/user/get-support`, {
+  console.log("Calling API with:", { userName, userEmail, phoneNumber, location, userId, insurance, support, message });
+
+  const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/user/get-support`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -165,11 +167,12 @@ export const getSupport = async (
       support,
       message
     })
-  })
-  const result = await response.json()
+  });
+  
+  const result = await response.json();
+  return result;
+};
 
-  return result
-}
 
 export const getInsurance = async (name: string, email: string, contact: string, userId: string, insurance: string) => {
   try {
