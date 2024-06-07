@@ -17,8 +17,8 @@ const Policy = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-4 mt-6">
-        <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#E5E5E5] text-xs">
-          <Wheat color="#54D2D1" width={32} height={32} />
+        <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#0E4D0C] text-xs">
+          <Wheat color="#0E4D0C" width={32} height={32} />
           <h4 className="text-xs font-bold font-bricolage">
             Financial Empowerment and Loans
           </h4>
@@ -31,8 +31,8 @@ const Policy = () => {
           <h4 className="text-xs">Women Empowerment</h4>
         </div>
 
-        <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#E5E5E5]">
-          <Wheat color="#54D2D1" width={32} height={32} />
+        <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#0E4D0C]">
+          <Wheat color="#0E4D0C" width={32} height={32} />
           <h4 className="text-xs font-bold font-bricolage">
             Encourage Partnership with Private Sector
           </h4>
@@ -43,8 +43,8 @@ const Policy = () => {
           <h4 className="text-xs">Training Programs</h4>
         </div>
 
-        <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#E5E5E5]">
-          <Wheat color="#54D2D1" width={32} height={32} />
+        <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#0E4D0C]">
+          <Wheat color="#0E4D0C" width={32} height={32} />
           <h4 className="text-xs font-bold font-bricolage">Security</h4>
           <h4 className="text-xs">Farm Infrastructure</h4>
           <h4 className="text-xs">Perimeter Security</h4>
@@ -54,8 +54,8 @@ const Policy = () => {
           <h4 className="text-xs">Supply Chain Security</h4>
         </div>
 
-        <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#E5E5E5]">
-          <Wheat color="#54D2D1" width={32} height={32} />
+        <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#0E4D0C]">
+          <Wheat color="#0E4D0C" width={32} height={32} />
           <h4 className="text-xs font-bold font-bricolage">
             Agricultural Policy
           </h4>
@@ -72,7 +72,7 @@ const Policy = () => {
       <div className="mt-6">
         <ChartComponent
           bgColor="#54d2d133"
-          borderColor="#54D2D1"
+          borderColor="#6CD365"
           label="Total Government support $"
         />
       </div>

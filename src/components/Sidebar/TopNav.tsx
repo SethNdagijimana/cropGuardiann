@@ -9,36 +9,6 @@ import LossesIcon from "../Icon/LossesIcon"
 import UpArrow from "../Icon/UpArrow"
 import Wheat from "../Icon/Wheat"
 
-import dynamic from "next/dynamic"
-
-
-// const AnimatedNumbers = dynamic(
-//   () => {
-//     return import("react-animated-numbers")
-//   },
-//   { ssr: false }
-// )
-
-// const achievementsList = [
-//   {
-//     metric: "Area of Doubt",
-//     value: "70",
-//     postfix: "+"
-//   },
-//   {
-//     metric: "Total Losses",
-//     value: "307",
-//     postfix: "+"
-//   },
-//   {
-//     metric: "Total Income",
-//     value: "80",
-//     postfix: "%"
-//   }
-// ]
-
-
-
 
 const TopNav = () => {
   const router = useRouter()

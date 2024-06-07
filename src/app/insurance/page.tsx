@@ -73,27 +73,14 @@ const Insurance = () => {
             handleActiveTab("supply")
           }}
         />
-        <Button
-          className={cn(
-            "border border-[#000000] rounded-[32px]",
-            isActiveTab === "collaboration" ? "border-[#54D2D1]" : ""
-          )}
-          text="Collaboration"
-          variant={"link"}
-          onClick={() => {
-            handlePage("collaboration")
-            handleActiveTab("collaboration")
-          }}
-        />
+    
       </div>
 
       {!showPage ? (
         <InsurancePolicy />
       ) : showSupply ? (
         <Supply />
-      ) : showCollaboration ? (
-        <Collaboration />
-      ) : (
+      )  : (
         <GovernmentPolicy />
       )}
     </div>
