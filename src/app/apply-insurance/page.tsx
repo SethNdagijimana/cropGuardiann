@@ -16,7 +16,6 @@ const ApplyInsurance = () => {
 
   const router = useRouter();
 
-  
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -62,61 +61,56 @@ const ApplyInsurance = () => {
     }
   };
 
-
   return (
     <>
-    <Button text="Back to Dashboard" onClick={router.back} />
+      <Button text="Back to Dashboard" onClick={router.back} />
 
-    <div className="mt-10">
+      <div className="mt-10">
         <h1 className="font-bricolage text-center">Insurance Application</h1>
       </div>
 
       <div className="flex justify-center items-center  m-24">
-      <div className="bg-[#F2F2F2] rounded-2xl p-6 w-[500px]">
-      
-      <h2>Application</h2>
-      <form className="space-y-6 mt-4" onSubmit={onSubmitHandler}>
-        <FormField
-          label="Name"
-          placeholder="Your Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <FormField
-          type="email"
-          label="Email"
-          placeholder="Your Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <FormField
-          label="Contact"
-          placeholder="Your Contact"
-          value={contact}
-          onChange={(e) => setContact(e.target.value)}
-        />
-        <FormField
-          label="User ID"
-          placeholder="Enter your ID"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-        />
-        <FormField
-          label="Insurance"
-          placeholder="Enter your insurance"
-          value={insurance}
-          onChange={(e) => setInsurance(e.target.value)}
-        />
-        <Button type="submit" disabled={isLoading}>
-          {isLoading ? "Sending..." : "Send"}
-        </Button>
-      </form>
-    </div>
+        <div className="bg-[#F2F2F2] rounded-2xl p-6 w-[500px]">
+          <h2>Application</h2>
+          <form className="space-y-6 mt-4" onSubmit={onSubmitHandler}>
+            <FormField
+              label="Name"
+              placeholder="Your Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <FormField
+              type="email"
+              label="Email"
+              placeholder="Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <FormField
+              label="Contact"
+              placeholder="Your Contact"
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
+            />
+            <FormField
+              label="User ID"
+              placeholder="Enter your ID"
+              value={userId}
+              onChange={(e) => setUserId(e.target.value)}
+            />
+            <FormField
+              label="Insurance"
+              placeholder="Enter your insurance"
+              value={insurance}
+              onChange={(e) => setInsurance(e.target.value)}
+            />
+            <Button type="submit" disabled={isLoading}>
+              {isLoading ? "Sending..." : "Send"}
+            </Button>
+          </form>
         </div>
-
-   
+      </div>
     </>
-  
   );
 };
 
