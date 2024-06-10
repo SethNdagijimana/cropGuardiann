@@ -20,7 +20,7 @@ model User {
   updatedAt      DateTime   @default(now())
   support        Support?
   feedback       Feedback?
-  Insurance      Insurance?
+  insurances     Insurance[]
 }
 
 model Support {
@@ -38,14 +38,15 @@ model Support {
 
 
 model Insurance {
-  id        Int           @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
-  email     String        @unique
+  email     String
   contact   String
-  userId    String
-  user      User          @relation(fields: [email], references: [email])
+  userId    Int       // Changed to Int to reference the User ID
+  user      User      @relation(fields: [userId], references: [id])
   insurance String
 }
+
 
 model Feedback {
   id        Int      @id @default(autoincrement())
