@@ -65,15 +65,17 @@ const ApplyInsurance = () => {
 
   return (
     <>
-      <Button text="Back to Dashboard" onClick={router.back} />
-
-      <div className="mt-10">
-        <h1 className="font-bricolage text-center">Insurance Application</h1>
+      <div className="md:px-4 px-2 mt-2">
+      <Button text="Back to Dashboard" className="rounded-2xl md:w-[200px] w-[100px]  md:text-base text-sm" onClick={router.back} />
       </div>
 
-      <div className="flex justify-center items-center  m-24">
+      <div className="md:mt-10 mt-5">
+        <h1 className="font-bricolage text-center md:text-[48px] text-base">Quotation Application</h1>
+      </div>
+
+      <div className="flex justify-center items-center md:mt-10 mt-5 container">
         <div className="bg-[#F2F2F2] rounded-2xl p-6 w-[500px]">
-          <h2>Application</h2>
+          <h2 className="md:text-[32px] text-base">Requesting for Quotation</h2>
           <form className="space-y-6 mt-4" onSubmit={onSubmitHandler}>
             <FormField
               label="Name"

@@ -36,7 +36,7 @@ const Insurance = () => {
   }
   return (
     <div className="container">
-      <div className="flex items-center justify-center gap-8 bg-transparent mt-[103px]">
+      <div className="flex items-center justify-center gap-8 bg-transparent md:mt-[103px] mt-10">
         <Button
           className={cn(
             "border border-[#000000] rounded-[32px]",
