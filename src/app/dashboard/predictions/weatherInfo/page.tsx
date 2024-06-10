@@ -6,7 +6,7 @@ const WeatherInfo = () => {
   return (
     <>
       <div className="mt-[48px] bg-[#F9F9F9] p-8">
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-4 gap-6">
           <div className="p-5 bg-[#FFF] rounded-2xl">
             <div className="flex items-center justify-between">
               <p>27°C</p>
@@ -138,7 +138,7 @@ const WeatherInfo = () => {
           borderColor="#0D934A"
         />
 
-        <div className="grid grid-cols-6 gap-6 mt-[48px]">
+        <div className="grid md:grid-cols-6 gap-6 mt-[48px]">
           <div className="p-5 bg-[#FFF] rounded-2xl">
             <p className="text-[#667085] font-medium font-bricolage text-xs">
               Max temp
@@ -195,8 +195,8 @@ const WeatherInfo = () => {
         <h3>Weather Alert</h3>
       </div>
 
-      <div className="rounded-2xl bg-[#F9F9F9] p-8 flex items-center justify-between mt-4">
-        <p className="w-[344px]">
+      <div className="rounded-2xl bg-[#F9F9F9] p-8 flex items-center md:justify-between mt-4">
+        <p className="md:w-[344px] w-[200px] md:text-base text-sm">
           Set up your weather alerts to begin receiving notifications on extreme
           forecasted weather.
         </p>

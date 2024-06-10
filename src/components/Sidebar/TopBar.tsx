@@ -18,7 +18,7 @@ const TopBar = () => {
   }
 
   return (
-    <div className="grid grid-cols-3 gap-6">
+    <div className="grid md:grid-cols-3 md:gap-6 gap-4 ">
       <div
         className={cn(
           "border border-[#F2F2F2] rounded-2xl md:p-5 p-2 cursor-pointer",

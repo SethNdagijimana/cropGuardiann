@@ -10,7 +10,7 @@ const MarketAnalysis = () => {
   return (
     <>
       <div className="mt-[48px] bg-[#F9F9F9] p-8">
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           <div className="p-5 bg-[#FFF] rounded-2xl">
             <div className="flex items-center justify-between">
               <p>Cost per product</p>
@@ -107,8 +107,8 @@ const MarketAnalysis = () => {
         <h3>Market Alert</h3>
       </div>
 
-      <div className="rounded-2xl bg-[#F9F9F9] p-8 flex items-center justify-between mt-4">
-        <p className="w-[344px]">
+      <div className="rounded-2xl bg-[#F9F9F9] p-8 flex items-center md:justify-between mt-4">
+        <p className="md:w-[344px] w-[200px]">
           Set up your Market alerts to begin receiving notifications on changes
           of price on market.
         </p>

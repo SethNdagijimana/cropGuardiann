@@ -9,12 +9,12 @@ const Prediction = () => {
   const router = useRouter()
   return (
     <>
-      <div className="mt-[25px] grid grid-cols-2 gap-[33px]">
-        <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
+      <div className="mt-[25px] grid md:grid-cols-2 gap-[33px]">
+        <div className="md:p-50 md:pr-84.87 md:pb-51 md:pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
           <PieChart />
         </div>
 
-        <div className="p-50 pr-84.87 pb-51 pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
+        <div className="md:p-50 md:pr-84.87 md:pb-51 md:pl-59 rounded-2xl bg-[#F9F9F9] flex items-center justify-center">
           <BarChart title="Prediction of Fibre" dataset1="Low" dataset2="High" dataset3="Normal" dataset4="Medium" dataset5="Risk"  />
         </div>
 
