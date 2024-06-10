@@ -22,7 +22,7 @@ const PlansAndMitigation = () => {
 
   return (
     <>
-      <div className="w-[572px] mx-auto space-y-8">
+      <div className="md:w-[572px] w-[300px] mx-auto md:space-y-8 space-y-4">
         <h2 className="text-center font-bricolage font-bold">
           Risk Mitigation Strategies
         </h2>
@@ -36,9 +36,9 @@ const PlansAndMitigation = () => {
 
       {/* //TODO remove to another component */}
 
-      <div className="grid grid-cols-2 mt-[42px] gap-4">
+      <div className="grid md:grid-cols-2 md:mt-[42px] mt-[32px] gap-4">
         <div className="p-6 border border-[#F2F2F2] rounded-[16px] bg-white">
-          <p className="text-[#8452BF] font-bold">
+          <p className="text-[#8452BF] font-bold md:text-base text-sm">
             The Four Risk Mitigation Strategies
           </p>
 
@@ -146,7 +146,7 @@ const PlansAndMitigation = () => {
         </div>
 
         <div className="p-6 border border-[#F2F2F2] rounded-[16px] bg-white">
-          <p className="text-[#8452BF] font-bold">
+          <p className="text-[#8452BF] font-bold md:text-base text-sm">
             How to Apply the Plan for the Four Risk Mitigation Types
           </p>
 
@@ -324,7 +324,7 @@ const PlansAndMitigation = () => {
                   className="w-full h-[40px] rounded-[16px] bg-[#54D2D1] float-right text-black font-bold"
                   variant={"ghost"}
                   text="Check Insurance Plan"
-                  onClick={() => router.push("/dashboard")}
+                  onClick={() => router.push("/insurance")}
                 />
               </AccordionContent>
             </AccordionItem>
