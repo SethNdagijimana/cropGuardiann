@@ -5,6 +5,8 @@ import { FormField } from "@/components/FormField";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+import Icon from '../../components/Icon/Icon';
+import { Loader } from "@/components/Loader";
 
 const ApplyInsurance = () => {
   const [name, setName] = useState("");
@@ -104,8 +106,18 @@ const ApplyInsurance = () => {
               value={insurance}
               onChange={(e) => setInsurance(e.target.value)}
             />
-            <Button type="submit" disabled={isLoading}>
-              {isLoading ? "Sending..." : "Send"}
+            <Button type="submit" 
+            disabled={
+                    isLoading || 
+                    !( 
+                      name &&
+                      email &&
+                      contact &&
+                      userId &&
+                      insurance
+                    )
+                  } className="rounded-2xl w-[100px] bg-[#0E4D0C]">
+              {isLoading ? <Loader /> : "Send"}
             </Button>
           </form>
         </div>
