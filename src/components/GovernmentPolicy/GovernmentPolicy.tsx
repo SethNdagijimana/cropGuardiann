@@ -6,6 +6,7 @@ import { toast } from "../ui/use-toast"
 import Policy from "./Policy"
 import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { Loader } from "../Loader"
 
 
 const GovernmentPolicy = () => {
@@ -210,7 +211,7 @@ const GovernmentPolicy = () => {
                   }
                   className="bg-[#0C3E0A] rounded-2xl"
                 >
-                  {isLoading ? "Requesting..." : "Send"}
+                  {isLoading ? <Loader /> : "Send"}
                 </Button>
               </div>
             </form>
