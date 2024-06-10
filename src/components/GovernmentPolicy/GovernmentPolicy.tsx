@@ -94,21 +94,21 @@ const GovernmentPolicy = () => {
 
   return (
     <>
-      <div className="grid grid-cols-2 px-[100px] py-[80px] gap-16 mt-[30px]">
+      <div className="grid md:grid-cols-2 md:px-[100px] md:py-[80px] md:gap-16 gap-4 md:mt-[30px] mt-4 py-0 px-0">
         <Policy />
 
-        <div className="bg-[#F2F2F2] rounded-2xl p-6 w-full">
-          <div className="w-[484px] space-y-6">
+        <div className="bg-[#F2F2F2] rounded-2xl p-6 md:w-full">
+          <div className="md:w-[484px] w-[280px] md:space-y-6 space-y-3">
             <h3 className="text-[24px] text-primary">Get Your Support</h3>
 
-            <h4 className="font-normal h-[61px] leading-[24px]">
+            <h4 className="font-normal h-[61px] md:leading-[24px] leading-4">
               To ensure the most accurate and relevant response, we will forward
               your inquiries to the cooperative with whom you are associated
               with.
             </h4>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 space-y-6 mt-6">
+          <div className="bg-white rounded-2xl md:p-6 md:space-y-6 md:mt-6 p-3 space-y-3 mt-2">
             <p className="text-center font-bold font-bricolage">
               Request your support
             </p>
@@ -220,8 +220,8 @@ const GovernmentPolicy = () => {
           <div className="mt-8">
             <p className="font-semibold">Government Support Alert</p>
 
-            <div className="flex items-center justify-between p-6 rounded-2xl bg-[#F5F6F8] border border-[#0E4D0C] mt-2">
-              <h4 className="w-[300px] text-center">
+            <div className="flex items-center justify-between md:p-6 p-2 rounded-2xl bg-[#F5F6F8] border border-[#0E4D0C] mt-2">
+              <h4 className="md:w-[300px] w-[200px] text-center">
                 Set your government alert to receive upcoming deadlines and
                 changes
               </h4>

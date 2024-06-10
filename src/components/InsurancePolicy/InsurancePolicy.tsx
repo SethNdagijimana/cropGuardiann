@@ -4,12 +4,12 @@ import Link from "next/link"
 const InsurancePolicy = () => {
   return (
     <>
-      <div className="w-[967px] mx-auto mt-[77px]">
-        <h1 className="text-[#0E4D0C] font-semibold font-bricolage text-center">
+      <div className="md:w-[967px] w-[300px] mx-auto m:mt-[77px] mt-[40px]">
+        <h1 className="text-[#0E4D0C] font-semibold font-bricolage text-center md:text-[48px] text-xl">
           Get your Insurance
         </h1>
 
-        <h3 className="text-center leading-[36px] mt-6">
+        <h3 className="text-center md:leading-[36px] mt-6 md:text-[20px] text-base">
           Agricultural insurance plays a crucial role in mitigating financial
           risks for farmers by providing protection against various perils that
           can adversely impact crop production and income. Here are key aspects
@@ -18,11 +18,11 @@ const InsurancePolicy = () => {
         </h3>
       </div>
 
-      <div className="mt-20 px-[140px] flex items-center justify-between gap-6  w-full">
-        <div className="space-y-6">
-          <h2 className=" mb-8 font-bold font-bricolage">Types of insurance</h2>
+      <div className="md:mt-20 mt-5 md:px-[140px] px-[60px] flex items-center justify-between md:gap-6 gap-2 w-full">
+        <div className="md:space-y-6 space-y-4">
+          <h2 className="md:mb-8 mb-4 font-bold font-bricolage">Types of insurance</h2>
 
-          <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
+          <div className="md:p-5 p-3 rounded-2xl border border-[#0E4D0C] bg-white md:space-y-6 space-y-4">
             <p className="font-bold font-bricolage text-[#0E6E0C]">
               Crop Insurance
             </p>
@@ -53,7 +53,7 @@ const InsurancePolicy = () => {
           </div>
         </div>
 
-        <div className="rounded-[16px] relative overflow-hidden h-[400px] w-[70%]">
+        <div className="rounded-[16px] relative md:block hidden overflow-hidden h-[400px] w-[70%]">
           <Image
             src={"/crop2.jpeg"}
             fill
@@ -65,12 +65,12 @@ const InsurancePolicy = () => {
         </div>
       </div>
 
-      <div className="mt-20">
-        <h2 className="text-center mb-8 font-bold font-bricolage">
+      <div className="md:mt-20 mt-8">
+        <h2 className="text-center mb-8 font-bold font-bricolage md:text-[32px] text-[24px] md:leading-[54px] leading-6">
           Key Aspects of Agricultural Insurance
         </h2>
 
-        <div className="grid grid-cols-2 gap-[43px] px-[140px]">
+        <div className="grid md:grid-cols-2 gap-[43px] md:px-[140px] px-[40px]">
           <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
             <p className="font-bold font-bricolage text-[#0E6E0C]">Premiums</p>
             <p className="text-xs">
@@ -113,12 +113,12 @@ const InsurancePolicy = () => {
         </div>
       </div>
 
-      <div className="mt-20">
-        <h2 className="text-center mb-8 font-bold font-bricolage">
+      <div className="md:mt-20 mt-5">
+        <h2 className="text-center mb-8 font-bold font-bricolage md:text-[32px] text-[24px] md:leading-[54px] leading-6">
           Benefits of Agricultural Insurance
         </h2>
 
-        <div className="grid grid-cols-2 gap-[43px] px-[140px]">
+        <div className="grid md:grid-cols-2 gap-[43px] md:px-[140px] px-[40px]">
           <div className="p-5 rounded-2xl border border-[#0E4D0C] bg-white space-y-6">
             <p className="font-bold font-bricolage text-[#0E6E0C]">
               Financial Stability
@@ -164,9 +164,9 @@ const InsurancePolicy = () => {
         </div>
       </div>
 
-      <div className="mt-20 px-[140px] flex items-center justify-between gap-6  w-full">
-        <div className="space-y-6">
-          <h2 className="text-center mb-8 font-bold font-bricolage">
+      <div className="mt-5 md:mt-20 md:px-[140px] px-[40px] flex items-center justify-between gap-6  w-full">
+        <div className="space-y-4 md:space-y-6">
+          <h2 className="text-center mb-8 font-bold font-bricolage md:text-[32px] text-[24px] md:leading-[54px] leading-6">
             Challenges and Considerations
           </h2>
 
@@ -223,13 +223,13 @@ const InsurancePolicy = () => {
         </div>
       </div>
 
-      <div className="mt-20">
-        <div className=" mb-8 text-center font-bold font-bricolage">
+      <div className="md:mt-20 mt-5">
+        <div className="mb-8 text-center font-bold font-bricolage">
           <h2>How do I apply?</h2>
           <p> Below is our easy step by step application process:</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 px-[147px]">
+        <div className="grid md:grid-cols-2 gap-6 md:px-[147px] px-[40px]">
           <div className="p-5 rounded-2xl border border-[#0E6E0C] bg-[#0E4D0C] space-y-6 text-white">
             <p className="font-bold font-bricolage">Step 1</p>
             <p className="text-xs">Request for quotation</p>

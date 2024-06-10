@@ -3,26 +3,26 @@ import Wheat from "../Icon/Wheat"
 
 const Policy = () => {
   return (
-    <div className="bg-[#F2F2F2] rounded-2xl p-6 w-full">
-      <div className="w-[484px] space-y-6">
-        <h3 className="text-[24px] text-primary">
+    <div className="bg-[#F2F2F2] rounded-2xl md:p-6 p-2 w-full">
+      <div className="md:w-[484px] w-[200px] md:space-y-6 space-y-3">
+        <h3 className="md:text-[24px] text-base text-primary">
           Government programs of getting agriculture support
         </h3>
 
-        <h4 className="font-normal h-[61px] leading-[24px]">
+        <h4 className="font-normal h-[61px] md:leading-[24px] leading-[16px]">
           To ensure the most accurate and relevant response, we&apos;ve
           forwarded your inquiry to the cooperative with whom you are
           associated.
         </h4>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mt-6">
+      <div className="grid md:grid-cols-2 md:gap-4 gap-2 mt-6">
         <div className="bg-white p-5 space-y-4 rounded-2xl border border-[#0E4D0C] text-xs">
           <Wheat color="#0E4D0C" width={32} height={32} />
           <h4 className="text-xs font-bold font-bricolage">
             Financial Empowerment and Loans
           </h4>
-          <h4 className="">Loans for Farmers</h4>
+          <h4 className="text-xs">Loans for Farmers</h4>
           <h4 className="text-xs">Investing in Technology</h4>
           <h4 className="text-xs">Crop Insurance:</h4>
           <h4 className="text-xs">Financial Literacy Programs</h4>

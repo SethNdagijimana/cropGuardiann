@@ -4,7 +4,7 @@ const Supply = () => {
   return (
     <>
       <div className="p-6 rounded-2xl bg-[#F2F2F2] mt-[77px]">
-        <div className="w-[484px] space-y-4">
+        <div className="md:w-[484px] w-[280px] space-y-4">
           <h3 className="text-[24px]">Supply chain management </h3>
           <h4 className="leading-[24px]">
             involves the coordination and integration of various activities and
@@ -13,7 +13,7 @@ const Supply = () => {
           </h4>
         </div>
 
-        <div className="grid grid-cols-3 mt-6 gap-4">
+        <div className="grid md:grid-cols-3 mt-6 gap-4">
           <div className="p-5 bg-[#FFF] border border-[#0E4D0C] rounded-2xl space-y-4">
             <svg
               width={32}
@@ -175,7 +175,7 @@ const Supply = () => {
       </div>
 
       <div className="p-6 rounded-2xl bg-[#F2F2F2] mt-[38px]">
-        <div className="w-[484px] space-y-4">
+        <div className="md:w-[484px] w-[280px] space-y-4">
           <h3 className="text-[24px]">
             How does modern technology help farmers in selling their harvest?
           </h3>
@@ -188,7 +188,7 @@ const Supply = () => {
           </h4>
         </div>
 
-        <div className="bg-white gap-[36px] grid grid-cols-2 mt-[38px] p-6 rounded-2xl">
+        <div className="bg-white gap-[36px] grid md:grid-cols-2 mt-[38px] p-6 rounded-2xl">
           <div className="space-y-6">
             <h3 className="font-semibold font-bricolage">
               Local Farmer Market
@@ -249,7 +249,7 @@ const Supply = () => {
       </div>
 
       <div className="p-6 rounded-2xl bg-[#F2F2F2] mt-[38px]">
-        <div className="w-[484px] space-y-4">
+        <div className="md:w-[484px] w-[280px] space-y-4">
           <h3 className="text-[24px]">
             The Problem Farmer face While selling their product
           </h3>
@@ -266,7 +266,7 @@ const Supply = () => {
           </h4>
         </div>
 
-        <div className="bg-white gap-[36px] grid grid-cols-2 mt-[38px] p-6 rounded-2xl">
+        <div className="bg-white gap-[36px] grid md:grid-cols-2 mt-[38px] p-6 rounded-2xl">
           <div className="space-y-6">
             <h3 className="font-semibold font-bricolage">
               Transportation problem
