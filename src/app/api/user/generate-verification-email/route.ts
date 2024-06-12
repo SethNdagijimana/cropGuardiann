@@ -2,16 +2,19 @@ import { prisma } from "@/lib/prisma"
 import { HttpStatusCode } from "@/utils/enums"
 import { sendEmail } from "@/utils/postmark"
 import jwt from "jsonwebtoken"
-import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
-  const { email } = await req.json()
+  console.log("Received POST request")
 
   try {
+    const { email } = await req.json()
+    console.log("Email received:", email)
+
     const userTokenInDB = await prisma.emailToken.findMany({
       where: { email }
     })
+    console.log("User token in DB:", userTokenInDB)
 
     if (userTokenInDB.length) {
       await prisma.emailToken.updateMany({
@@ -21,6 +24,7 @@ export async function POST(req: Request) {
           updatedAt: new Date()
         }
       })
+      console.log("Existing tokens deactivated")
     }
 
     const token = jwt.sign(
@@ -30,21 +34,23 @@ export async function POST(req: Request) {
         expiresIn: "1d"
       }
     )
+    console.log("JWT token generated:", token)
 
     const emailHtml = `
-    <div styles="text-align:center;">
+    <div style="text-align:center;">
       <h1>Verify your email to start using Crop Guardian</h1>
       <span style="text-decoration:underline;margin-top:16px;">${email}</span>
 
       <p style="margin-top:28px">Your link is active for 24 hours. After that, you will need to resend the verification email.</p>
       
-      <a href="${process.env.APP_URL}}/verify-email/${token}" target="_blank">Verify email address</a>
+      <a href="${process.env.APP_URL}/verify-email/${token}" target="_blank">Verify email address</a>
 
-      <a style="display:block; margin-top:16px" href="${process.env.APP_URL}}/verify-email/${token}" target="_blank">
-        ${process.env.APP_URL}}/verify-email/${token}
+      <a style="display:block; margin-top:16px" href="${process.env.APP_URL}/verify-email/${token}" target="_blank">
+        ${process.env.APP_URL}/verify-email/${token}
       </a>
     </div>
     `
+    console.log("Email HTML generated")
 
     await prisma.emailToken.create({
       data: {
@@ -53,14 +59,17 @@ export async function POST(req: Request) {
         isActive: true
       }
     })
+    console.log("Token saved in DB")
 
     await sendEmail(email, "Please verify your email", emailHtml)
+    console.log("Email sent")
 
     return NextResponse.json(
-      { success: true, message:"email-has-been-sent" },
+      { success: true, message: "email-has-been-sent" },
       { status: HttpStatusCode.OK }
     )
   } catch (error) {
+    console.error("Error in POST /api/user/generate-verification-email:", error)
     return NextResponse.json(
       { error: true, message: "error-message" },
       { status: HttpStatusCode.INTERNAL_SERVER }
