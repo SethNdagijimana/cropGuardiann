@@ -45,7 +45,7 @@ const ApplyInsurance = () => {
           variant: "default",
           description: data.message,
         });
-        router.push("/dashboard"); // Redirect to dashboard or any other page
+        router.push("/dashboard");
       } else {
         toast({
           variant: "destructive",
