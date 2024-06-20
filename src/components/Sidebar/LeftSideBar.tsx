@@ -489,7 +489,10 @@ const LeftSideBar = () => {
                   ? "bg-[#54D2D1] text-white "
                   : ""
               )}
-              onClick={() => handleButtonClick("Notifications")}
+              onClick={() => {
+                handleButtonClick("Notifications")
+                router.push("/dashboard/notification")
+              }}
               variant={"link"}
               icon={
                 <svg

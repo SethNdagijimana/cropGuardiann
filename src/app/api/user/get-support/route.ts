@@ -1,5 +1,7 @@
+import { addNotification } from "@/lib/notification";
 import { prisma } from "@/lib/prisma";
 import { HttpStatusCode } from "@/utils/enums";
+import Email from "next-auth/providers/email";
 import { NextResponse } from "next/server";
 import nodemailer from 'nodemailer';
 
@@ -92,7 +94,10 @@ export async function POST(req: Request) {
     await transporter.sendMail(mailOptionsToSupport);
     await transporter.sendMail(mailOptionsToUser);
 
-   
+    addNotification({
+      title: "Support Request Received",
+      message: `Thank you for requesting support, ${userName}! Your request is being processed. You will receive a confirmation email or call within 24 hours.`,
+    });
 
     return NextResponse.json(
       {

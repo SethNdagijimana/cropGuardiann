@@ -1,16 +1,14 @@
 import { PrismaClient } from '@prisma/client';
 import { HttpStatusCode } from "@/utils/enums";
-import { sendEmail } from "@/utils/mailer";
 import { NextResponse } from "next/server";
 import nodemailer from 'nodemailer';
+import { addNotification } from '@/lib/notification';
 
 const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
   try {
     const { name, email, contact, userId, insurance } = await req.json();
-
-    console.log("Received request with data:", { name, email, contact, userId, insurance });
 
     // Validate required fields
     if (!name || !email || !contact || !userId || !insurance) {
@@ -21,8 +19,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Check if the user exists by email
-    console.log("Looking for user with email:", email.toLowerCase());
     const user = await prisma.user.findUnique({
       where: { email: email.toLowerCase() },
     });
@@ -46,8 +42,6 @@ export async function POST(req: Request) {
       },
     });
 
-    console.log("Insurance created:", userInsurance);
-
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -58,7 +52,7 @@ export async function POST(req: Request) {
 
     const mailOptionsToSupport = {
       from:`"${name}" <${email}>`,
-      to:  "sethreas@gmail.com" ,
+      to: "sethreas@gmail.com",
       subject: "New Insurance Quotation Request",
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
@@ -75,25 +69,28 @@ export async function POST(req: Request) {
       `
     };
 
-      // Email to the user
-  const mailOptionsToUser = {
-    from: process.env.SMTP_USER,
-    to: email,
-    subject: "Insurance Request Received",
-    html: `
-      <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-        <h2 style="color: #0C3E0A;">Request Received</h2>
-        <p>Thank you for Applying for insurance, <strong>${name}</strong>! Your request is being processed. You will receive a confirmation email or call within 24 hours.</p>
-        <p>Best regards,<br>Crop Guardian Support Team</p>
-      </div>
-    `
-  };
+    // Email to the user
+    const mailOptionsToUser = {
+      from: process.env.SMTP_USER,
+      to: email,
+      subject: "Insurance Request Received",
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+          <h2 style="color: #0C3E0A;">Request Received</h2>
+          <p>Thank you for Applying for insurance, <strong>${name}</strong>! Your request is being processed. You will receive a confirmation email or call within 24 hours.</p>
+          <p>Best regards,<br>Crop Guardian Support Team</p>
+        </div>
+      `
+    };
 
     await transporter.sendMail(mailOptionsToSupport);
     await transporter.sendMail(mailOptionsToUser);
 
-
-    console.log("Email sent to:", email);
+    // Add notification for the user
+    addNotification({
+      title: "Insurance Request Received",
+      message: `Thank you for applying for insurance, ${name}! Your request is being processed. You will receive a confirmation email or call within 24 hours.`,
+    });
 
     return NextResponse.json(
       {
