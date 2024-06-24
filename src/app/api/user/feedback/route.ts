@@ -5,11 +5,11 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
-    const { email, feedback } = await req.json();
-    console.log("Received feedback", { email, feedback });
+    const {name, email, feedback } = await req.json();
+    console.log("Received feedback", {name, email, feedback });
 
     if (!email || !feedback) {
-      console.error("Missing fields:", { email, feedback });
+      console.error("Missing fields:", {name, email, feedback });
       return NextResponse.json(
         { error: true, message: "All fields are required" },
         { status: HttpStatusCode.BAD_REQUEST }
@@ -30,6 +30,7 @@ export async function POST(req: Request) {
 
     await prisma.feedback.create({
       data: {
+        name,
         email: email.toLowerCase(),
         feedback,
         userId: userWithEmail.id,
@@ -54,7 +55,7 @@ export async function POST(req: Request) {
         <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
           <h2 style="color: #0C3E0A;">New FeedBack</h2>
           <p style="color: #0C3E0A;">Crop Guardian</p>
-          <p>You have received a new FeedBack  from <strong>${email}</strong></p>
+          <p>You have received a new FeedBack  from <strong>${name} </strong></p>
           <ul style="list-style-type: none; padding: 0;">
             <li><strong>Email:</strong> ${email}</li>
             <li><strong> FeedBack is:</strong> ${feedback}</li>
@@ -80,7 +81,7 @@ export async function POST(req: Request) {
     await transporter.sendMail(mailOptionsToUser);
 
     return NextResponse.json(
-      { success: true, message: "Your feedback was received successfully" },
+      { success: true, message: `Thank You ${name} for your FeedBack` },
       { status: HttpStatusCode.OK }
     );
 

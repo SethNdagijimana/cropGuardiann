@@ -222,12 +222,12 @@ export const getInsurance = async (name: string, email: string, contact: string,
 
 
  export const userFeedback = async (email: string, feedback: string) => {
-  console.log("Calling userFeedback API with:", { email, feedback });
+  console.log("Calling userFeedback API with:", {name, email, feedback });
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/user/feedback`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, feedback }),
+      body: JSON.stringify({name, email, feedback }),
     });
 
     if (!response.ok) {

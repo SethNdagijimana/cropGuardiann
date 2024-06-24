@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 interface Feedback {
   id: string;
+  name: string;
   email: string;
   feedback: string;
   createdAt: string;
@@ -74,7 +75,7 @@ const Testimonials = () => {
               </div>
               <div className="gap-2 flex items-center justify-center">
                 <h4 className="md:text-[15px] text-xs font-medium text-primary">
-                  {item.email}
+                  {item.name}
                 </h4>
                 <span className="cursor-pointer">
                   <svg

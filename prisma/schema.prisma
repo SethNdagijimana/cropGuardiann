@@ -50,6 +50,7 @@ model Insurance {
 
 model Feedback {
   id        Int      @id @default(autoincrement())
+  name      String
   email     String
   feedback  String
   userId    Int
