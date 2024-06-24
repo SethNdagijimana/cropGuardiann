@@ -9,102 +9,57 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
+
 const FeedBack = () => {
   const [feedback, setIsFeedback] = useState("");
   const [email, setIsEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
   const router = useRouter();
 
-  // const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
+  const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  //   if (!feedback || !email) {
-  //     toast({
-  //       variant: "destructive",
-  //       description: "Email and feedback are required",
-  //     });
-  //     return;
-  //   }
+    if ( !email || !feedback) {
+      toast({
+        variant: "destructive",
+        description: "All fields are required",
+      });
+      return;
+    }
 
-  //   setIsLoading(true);
+    setIsLoading(true);
 
-  //   try {
-  //     const data = await userFeedback(email, feedback);
+    try {
+      const response = await fetch("/api/user/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({  email, feedback }),
+      });
 
-  //     console.log("Data from API:", data);
+      const data = await response.json();
 
-  //     if (data.error) {
-  //       toast({
-  //         variant: "destructive",
-  //         description: data.message,
-  //       });
-  //     } else {
-  //       toast({
-  //         variant: "default",
-  //         description: "Feedback submitted successfully",
-  //       });
-  //       router.push("/feedback");
-  //     }
-  //   } catch (error) {
-  //     toast({
-  //       variant: "destructive",
-  //       description: "Internal error",
-  //     });
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
- 
- const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-
-  if (!email || !feedback) {
-    toast({
-      variant: "destructive",
-      description: "All fields are required",
-    });
-    return;
-  }
-
-  setIsLoading(true);
- 
-
- try {
-  const response = await fetch("/api/user/feedback", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, feedback}),
-  });
-
-  const data = await response.json();
-  console.log("response ====>", response)
-
-  if (response.ok) {
-    toast({
-      variant: "default",
-      description: data.message,
-    });
-    router.push("/dashboard");
-  } else {
-    toast({
-      variant: "destructive",
-      description: data.message,
-    });
-  }
-} catch (error) {
-  toast({
-    variant: "destructive",
-    description: "An error occurred",
-  });
-  console.error("Error submitting feedback:", error);
-} finally {
-  setIsLoading(false);
-}
-};
-
-
+      if (response.ok) {
+        toast({
+          variant: "default",
+          description: data.message,
+        });
+        router.push("/dashboard");
+      } else {
+        toast({
+          variant: "destructive",
+          description: data.message,
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        description: "An error occurred",
+      });
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="grid grid-cols-2 gap-[32px]">

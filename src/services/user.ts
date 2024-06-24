@@ -152,8 +152,6 @@ export const getSupport = async (
   support: string,
   message: string
 ) => {
-  console.log("Calling API with:", { userName, userEmail, phoneNumber, location, userId, insurance, support, message });
-
   const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/user/get-support`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -197,7 +195,33 @@ export const getInsurance = async (name: string, email: string, contact: string,
   }
 };
 
-export const userFeedback = async (email: string, feedback: string) => {
+// export const userFeedback = async (email: string, feedback: string) => {
+//   console.log("Calling userFeedback API with:", { email, feedback });
+//   try {
+//     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/user/feedback`, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ email, feedback }),
+//     });
+
+
+//     if (!response.ok) {
+//       const errorData = await response.json();
+//       console.error(`Error: ${response.status} - ${response.statusText}`);
+//       return { error: true, message: errorData.message || "An error occurred" };
+//     }
+
+//     const result = await response.json();
+
+//     return result;
+//   } catch (error) {
+//     console.error("Fetch error:", error);
+//     return { error: true, message: "feedback error" };
+//   }
+// };
+
+
+ export const userFeedback = async (email: string, feedback: string) => {
   console.log("Calling userFeedback API with:", { email, feedback });
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/user/feedback`, {
@@ -206,7 +230,6 @@ export const userFeedback = async (email: string, feedback: string) => {
       body: JSON.stringify({ email, feedback }),
     });
 
-
     if (!response.ok) {
       const errorData = await response.json();
       console.error(`Error: ${response.status} - ${response.statusText}`);
@@ -214,14 +237,12 @@ export const userFeedback = async (email: string, feedback: string) => {
     }
 
     const result = await response.json();
-
     return result;
   } catch (error) {
     console.error("Fetch error:", error);
-    return { error: true, message: "feedback error" };
+    return { error: true, message: "Feedback error" };
   }
 };
-
 
 
 
