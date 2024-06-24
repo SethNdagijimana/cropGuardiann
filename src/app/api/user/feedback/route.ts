@@ -47,12 +47,12 @@ export async function POST(req: Request) {
     });
 
     const mailOptionsToSupport = {
-      from:`${email}`,
+      from: `${email}`,
       to: "sethreas@gmail.com",
       subject: "New FeedBack",
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-          <h2 style="color: #0C3E0A;">New Insurance Request</h2>
+          <h2 style="color: #0C3E0A;">New FeedBack</h2>
           <p style="color: #0C3E0A;">Crop Guardian</p>
           <p>You have received a new FeedBack  from <strong>${email}</strong></p>
           <ul style="list-style-type: none; padding: 0;">
@@ -60,28 +60,25 @@ export async function POST(req: Request) {
             <li><strong> FeedBack is:</strong> ${feedback}</li>
           </ul>
         </div>
-      `
+      `,
     };
 
-    // Email to the user
     const mailOptionsToUser = {
       from: process.env.SMTP_USER,
       to: email,
       subject: "FeedBack Received",
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-          <h2 style="color: #0C3E0A;">Request Received</h2>
+          <h2 style="color: #0C3E0A;">FeedBack Received</h2>
           <p>Thank you for Trusting Crop Guardian, <strong>${email}</strong>!agricultural excellence. is not just a goal but a way of life.</p>
           <p>Best regards,<br>Crop Guardian Support Team</p>
         </div>
-      `
+      `,
     };
 
     await transporter.sendMail(mailOptionsToSupport);
     await transporter.sendMail(mailOptionsToUser);
 
-
-    // Return a successful JSON response
     return NextResponse.json(
       { success: true, message: "Your feedback was received successfully" },
       { status: HttpStatusCode.OK }
@@ -91,6 +88,33 @@ export async function POST(req: Request) {
     console.error("Internal server error:", error);
     return NextResponse.json(
       { error: true, message: "Internal server error" },
+      { status: HttpStatusCode.INTERNAL_SERVER }
+    );
+  }
+}
+
+export async function GET(req: Request) {
+  try {
+    const feedbacks = await prisma.feedback.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+
+    const userFeedbackMap = new Map();
+    feedbacks.forEach((feedback) => {
+      if (!userFeedbackMap.has(feedback.email)) {
+        userFeedbackMap.set(feedback.email, feedback);
+      }
+    });
+
+    const latestFeedbacks = Array.from(userFeedbackMap.values()).slice(0, 4);
+
+    return NextResponse.json(latestFeedbacks, { status: HttpStatusCode.OK });
+  } catch (error) {
+    console.error("Error fetching feedback:", error);
+    return NextResponse.json(
+      { error: true, message: "Error fetching feedback" },
       { status: HttpStatusCode.INTERNAL_SERVER }
     );
   }
