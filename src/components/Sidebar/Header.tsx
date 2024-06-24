@@ -8,6 +8,9 @@ interface HeaderProp{
 
 const Header = ({name}:HeaderProp ) => {
   const router = useRouter()
+
+  const firstLetter = name.charAt(0).toUpperCase()
+
   return (
     <>
 
@@ -25,7 +28,7 @@ const Header = ({name}:HeaderProp ) => {
         >
           <p className="text-[#004064] text-[20px] font-bricolage font-bold">{name}</p>
           <div className="w-8 h-8 p-4 flex items-center justify-center rounded-[66px] bg-black">
-            <p className="text-lg text-white">S</p>
+            <p className="text-lg text-white">{firstLetter}</p>
           </div>
         </div>
       </div>
