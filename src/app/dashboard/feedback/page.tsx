@@ -13,13 +13,14 @@ import React, { useState } from "react";
 const FeedBack = () => {
   const [feedback, setIsFeedback] = useState("");
   const [email, setIsEmail] = useState("");
+  const [name, setName] = useState("")
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if ( !email || !feedback) {
+    if (!name || !email || !feedback) {
       toast({
         variant: "destructive",
         description: "All fields are required",
@@ -33,7 +34,7 @@ const FeedBack = () => {
       const response = await fetch("/api/user/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({  email, feedback }),
+        body: JSON.stringify({name,  email, feedback }),
       });
 
       const data = await response.json();
@@ -78,11 +79,20 @@ const FeedBack = () => {
                 <h2 className="p-8 text-center text-2xl text-white font-bricolage">
                   Hi there!! Your Feedback is important to us
                 </h2>
-                <div className="w-full px-4 rounded-[10px]">
+                <div className="w-full px-4 rounded-[10px] space-y-4">
+                <FormField
+                    label="Your Name"
+                    type="text"
+                    className="w-[300px]"
+                    placeholder="Your Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+
                   <FormField
                     label="Your Email"
                     type="email"
-                    className="mt-20 w-[300px]"
+                    className="mt-1 w-[300px]"
                     placeholder="Your Email"
                     value={email}
                     onChange={(e) => setIsEmail(e.target.value)}
@@ -90,7 +100,7 @@ const FeedBack = () => {
                   <FormField
                     label="Send us your feedback"
                     isTextArea
-                    className="mt-4 w-[300px]"
+                    className="w-[300px]"
                     placeholder="Your feedback..."
                     value={feedback}
                     onChange={(e) => setIsFeedback(e.target.value)}
