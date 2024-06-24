@@ -49,11 +49,12 @@ model Insurance {
 
 
 model Feedback {
-  id        Int       @id @default(autoincrement())
-  email     String    
+  id        Int      @id @default(autoincrement())
+  email     String
   feedback  String
-  user      User      @relation(fields: [email], references: [email])
-  createdAt DateTime  @default(now())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
 }
 
 

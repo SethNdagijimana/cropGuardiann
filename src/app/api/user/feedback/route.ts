@@ -1,7 +1,7 @@
-import { prisma } from "@/lib/prisma";
-import { HttpStatusCode } from "@/utils/enums";
-import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { prisma } from '@/lib/prisma';
+import { HttpStatusCode } from '@/utils/enums';
+import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
@@ -32,39 +32,61 @@ export async function POST(req: Request) {
       data: {
         email: email.toLowerCase(),
         feedback,
-        user: { connect: { email: email.toLowerCase() } },
+        userId: userWithEmail.id,
       },
     });
 
     console.log("Feedback saved to database");
 
-    // Configure nodemailer transporter
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: (process.env.SMTP_PORT, 10),
-      secure: process.env.SMTP_SECURE === "true",
+      service: "gmail",
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
     });
 
-    // Define email options
-    const mailOptions = {
-      from: process.env.SMTP_USER,
-      to: 'sethreas@gmail.com',
-      subject: 'New Feedback Received',
-      text: `You have received new feedback from ${email}:\n\n${feedback}`,
+    const mailOptionsToSupport = {
+      from:`${email}`,
+      to: "sethreas@gmail.com",
+      subject: "New FeedBack",
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+          <h2 style="color: #0C3E0A;">New Insurance Request</h2>
+          <p style="color: #0C3E0A;">Crop Guardian</p>
+          <p>You have received a new FeedBack  from <strong>${email}</strong></p>
+          <ul style="list-style-type: none; padding: 0;">
+            <li><strong>Email:</strong> ${email}</li>
+            <li><strong> FeedBack is:</strong> ${feedback}</li>
+          </ul>
+        </div>
+      `
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully");
+    // Email to the user
+    const mailOptionsToUser = {
+      from: process.env.SMTP_USER,
+      to: email,
+      subject: "FeedBack Received",
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+          <h2 style="color: #0C3E0A;">Request Received</h2>
+          <p>Thank you for Trusting Crop Guardian, <strong>${email}</strong>!agricultural excellence. is not just a goal but a way of life.</p>
+          <p>Best regards,<br>Crop Guardian Support Team</p>
+        </div>
+      `
+    };
 
+    await transporter.sendMail(mailOptionsToSupport);
+    await transporter.sendMail(mailOptionsToUser);
+
+
+    // Return a successful JSON response
     return NextResponse.json(
       { success: true, message: "Your feedback was received successfully" },
       { status: HttpStatusCode.OK }
     );
+
   } catch (error) {
     console.error("Internal server error:", error);
     return NextResponse.json(
@@ -73,26 +95,3 @@ export async function POST(req: Request) {
     );
   }
 }
-
-export const userFeedback = async (email: string, feedback: string) => {
-  console.log("Calling userFeedback API with:", { email, feedback });
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/user/feedback`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, feedback }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error(`Error: ${response.status} - ${response.statusText}`);
-      return { error: true, message: errorData.message || "An error occurred" };
-    }
-
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error("Fetch error:", error);
-    return { error: true, message: "feedback error" };
-  }
-};
