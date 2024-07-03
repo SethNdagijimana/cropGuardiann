@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { Bricolage_Grotesque, Inter } from "next/font/google"
 import "../styles/globals.scss"
 import NextAuthSessionProvider from "./providers/NextAuthSessionProvider"
+import { ThemeProvider } from "@/components/ThemeProvider/ThemeProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,8 +28,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(inter.className, bricolage.variable)}>
         <main>
-          {" "}
-          <NextAuthSessionProvider>{children}</NextAuthSessionProvider>
+          
+          <ThemeProvider attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange>
+            <NextAuthSessionProvider>
+              {children}
+              </NextAuthSessionProvider>
+              </ThemeProvider>
+          
         </main>
         <Toaster />
       </body>
